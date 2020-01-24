@@ -1,0 +1,18 @@
+.layout {
+	display: flex;
+}
+
+.left-rail {
+	width: 30%;
+	min-height: 100vh;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+}
+
+.content {
+	padding: 20px;
+	background-color: #EEEEEE;
+	flex-grow: 1;
+}
