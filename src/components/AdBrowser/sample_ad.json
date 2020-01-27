@@ -27,14 +27,21 @@
 		  "country_code":"US",
 		  "most_recent":null,
 		  "funding_entity":null,
-		  "topics":[
-			 "immigration",
-			 "corruption"
-		  ],
 		  "impressions":[
  
 		  ],
-		  "advertiser":"Elizabeth Warren"
+		  "writable_ad":{
+			 "id":2060,
+			 "partisanship":null,
+			 "purpose":null,
+			 "optimism":null,
+			 "attack":null,
+			 "archive_id":430715657554578,
+			 "created_at":"2020-01-24T00:02:25.832Z",
+			 "updated_at":"2020-01-24T00:02:25.832Z",
+			 "text_hash":"34bdaea8efc6ac866e3b4b95664338eb0b121830",
+			 "ad_id":null
+		  }
 	   },
 	   {
 		  "text":"Let's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \n\nJoin us to learn more about how to spread Elizabeth’s vision for big, structural change.",
@@ -56,59 +63,21 @@
 		  "country_code":"US",
 		  "most_recent":null,
 		  "funding_entity":null,
-		  "topics":[
-			 "budget",
-			 "abortion"
-		  ],
 		  "impressions":[
  
 		  ],
-		  "advertiser":"Elizabeth Warren"
-	   },
-	   {
-		  "id":"23843761749590770",
-		  "html":"\u003cdiv class=\"_5pa- userContentWrapper\"\u003e\u003cdiv class=\"_1dwg _1w_m\"\u003e\u003cdiv\u003e\u003cdiv class=\"n_1et7rg-s22 c_1et7rh2qkn clearfix\"\u003e\u003cdiv class=\"clearfix s_1et7rg-tsr\"\u003e\u003ca class=\"_5pb8 g_1et7rh2qkg _8o _8s lfloat _ohe\" data-hovercard=\"https://www.facebook.com/38471053686\" href=\"https://www.facebook.com/ElizabethWarren/\"\u003e\u003cdiv class=\"_38vo\"\u003e\u003c!-- react-mount-point-unstable --\u003e\u003cdiv\u003e\u003cimg class=\"_s0 _4ooo _5xib _44ma _54ru img\" src=\"https://fbpac-ads-public.s3.amazonaws.com/v/t1.0-1/p32x32/62053379_10156558715523687_1252765707393826816_n.jpg\"\u003e\u003c/div\u003e\u003c/div\u003e\u003c/a\u003e\u003cdiv class=\"clearfix _42ef\"\u003e\u003cdiv class=\"rfloat _ohf\"\u003e\u003c/div\u003e\u003cdiv class=\"t_1et7rg-tsk\"\u003e\u003cdiv\u003e\u003cdiv class=\"_6a _5u5j\"\u003e\u003cdiv class=\"_6a _6b\"\u003e\u003c/div\u003e\u003cdiv class=\"_6a _5u5j _6b\"\u003e\u003ch6 class=\"_7tae _14f3 _14f5 _5pbw _5vra\"\u003e\u003cspan class=\"fwn fcg\"\u003e\u003cspan class=\"fcg\"\u003e\u003cspan class=\"fwb\"\u003e\u003ca class=\"profileLink\" data-hovercard=\"https://www.facebook.com/38471053686\" href=\"https://www.facebook.com/ElizabethWarren/\"\u003eElizabeth Warren\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/h6\u003e\u003cdiv\u003e\u003ca class=\"_5pcq\" href=\"#\" id=\"u_fetchstream_29_2e\"\u003e\u003cspan\u003e\u003cspan class=\"_3nlk\"\u003eSponsored\u003c/span\u003e ⋅ Paid for by \u003cspan class=\"_3nlk\"\u003eWarren for President\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003cspan class=\"_6spk\"\u003e · \u003c/span\u003e\u003ca class=\"uiStreamPrivacy inlineBlock fbStreamPrivacy fbPrivacyAudienceIndicator _5pcq\" href=\"#\"\u003e\u003ci class=\"lock img sp_gNqCxYl3J40 sx_689d9c\"\u003e\u003c/i\u003e\u003c/a\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_5pbx userContent _3576\" id=\"js_cvz\"\u003e\u003cp\u003eLet's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \u003c/p\u003e\u003cp\u003e Join us to learn more about how to spread Elizabeth’s vision for big, structural change.\u003c/p\u003e\u003c/div\u003e\u003cdiv class=\"_3x-2\"\u003e\u003cdiv\u003e\u003cdiv class=\"mtm\"\u003e\u003cdiv class=\"_1ci8\"\u003e\u003cdiv\u003e\u003cdiv class=\"_6l4 _59ap _64lx _3eqz _1-9r _2rk1 _20pq _3eqw _3n1j\"\u003e\u003cdiv class=\"_5inf\"\u003e\u003cdiv class=\"uiScaledImageContainer _6m5 fbStoryAttachmentImage _5ind\"\u003e\u003cimg class=\"scaledImageFitWidth img\" src=\"https://fbpac-ads-public.s3.amazonaws.com/v/t45.1600-4/c0.21.1140.598a/p1140x598/68220371_23843666791720770_6870780649381298176_n.png\"\u003e\u003c/div\u003e\u003ca class=\"_5ine\" href=\"https://www.facebook.com/events/313321032835343/\"\u003e\u003c/a\u003e\u003c/div\u003e\u003cdiv class=\"_3z2 _3z3 _2v9b\"\u003e\u003cdiv\u003e\u003cdiv class=\"_3ekx _29_4 _fwr\"\u003e\u003cdiv class=\"_44ae _651x\"\u003e\u003cdiv class=\"_6m3 _--6 _4dhn _opx\"\u003e\u003cdiv class=\"_59tj _2iau _oq1\"\u003e\u003cdiv class=\"_6lz _6mb _1t62\"\u003e\u003cdiv\u003eTUE, OCT 1 AT 7 PM\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_3n1k\"\u003e\u003cdiv class=\"_6m6 _2cnj\"\u003e\u003ca href=\"https://www.facebook.com/events/313321032835343/\"\u003eCharlotte Barnstorm Volunteer Training with Team Warren\u003c/a\u003e\u003c/div\u003e\u003cdiv class=\"_6m7 _3bt9 hidden_elem\"\u003e\u003cdiv class=\"fsm fwn fcg\"\u003e\u003cspan\u003eCharlotte, NC\u003c/span\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_20l4 _svw _5inn\"\u003e310 people interested · 34 people going\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_44af _2e6-\"\u003e\u003cdiv class=\"_6a _6b _fw_ _fx0\"\u003e\u003cdiv class=\"_19ab\" id=\"u_fetchstream_29_2h\"\u003e\u003cspan id=\"u_fetchstream_29_2j\"\u003e\u003ca class=\"_42ft _4jy0 fbEventAttachmentCTAButton _522u _4jy3 _517h _51sy\" href=\"#\"\u003e\u003ci class=\"_3-8_ img sp_kJazzH4jvE1 sx_634b40\"\u003e\u003c/i\u003eInterested\u003c/a\u003e\u003c/span\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_4hk3\"\u003e\u003cdiv class=\"_34js _1kaa _34jv\" id=\"u_fetchstream_29_2k\"\u003e\u003cdiv class=\"_34jx _2cpc _34ju\"\u003e\u003cdiv class=\"_34k0\"\u003e\u003ci class=\"_34k2\"\u003e\u003c/i\u003e\u003c/div\u003e\u003cdiv class=\"_34k3\"\u003ePaid for by Warren for Pr...\u003c/div\u003e\u003ca class=\"_34k6\" href=\"#\" id=\"u_fetchstream_29_2l\"\u003e\u003c/a\u003e\u003c/div\u003e\u003cdiv class=\"_34jw\"\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_1dp8\"\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv\u003e\u003c/div\u003e\u003c/div\u003e",
-		  "political":3,
-		  "not_political":0,
-		  "title":"Elizabeth Warren",
-		  "thumbnail":"https://fbpac-ads-public.s3.amazonaws.com/v/t1.0-1/p32x32/62053379_10156558715523687_1252765707393826816_n.jpg",
-		  "updated_at":"2019-09-27T01:30:31.743Z",
-		  "lang":"en-US",
-		  "images":[
-			 "https://fbpac-ads-public.s3.amazonaws.com/v/t45.1600-4/c0.21.1140.598a/p1140x598/68220371_23843666791720770_6870780649381298176_n.png"
-		  ],
-		  "impressions":1,
-		  "political_probability":0.998567219990821,
-		  "targeting":null,
-		  "suppressed":false,
-		  "targets":[
- 
-		  ],
-		  "advertiser":"Elizabeth Warren",
-		  "entities":[
- 
-		  ],
-		  "page":"https://www.facebook.com/ElizabethWarren/",
-		  "lower_page":"https://www.facebook.com/elizabethwarren/",
-		  "targetings":null,
-		  "targetedness":null,
-		  "listbuilding_fundraising_proba":null,
 		  "writable_ad":{
-			 "id":21663,
+			 "id":4157,
 			 "partisanship":null,
 			 "purpose":null,
 			 "optimism":null,
 			 "attack":null,
-			 "archive_id":null,
-			 "created_at":"2020-01-08T21:18:54.239Z",
-			 "updated_at":"2020-01-23T22:48:19.812Z",
+			 "archive_id":523796201765923,
+			 "created_at":"2020-01-24T00:02:47.472Z",
+			 "updated_at":"2020-01-24T00:02:47.472Z",
 			 "text_hash":"34bdaea8efc6ac866e3b4b95664338eb0b121830",
-			 "ad_id":"23843761749590770"
-		  },
-		  "creation_date":"2019-09-27T00:07:27.565Z",
-		  "text":"\u003cp\u003eLet's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \u003c/p\u003e\u003cp\u003e Join us to learn more about how to spread Elizabeth’s vision for big, structural change.\u003c/p\u003e",
-		  "funding_entity":"Warren for President",
-		  "start_date":null
+			 "ad_id":null
+		  }
 	   },
 	   {
 		  "id":"23843761749580770",
@@ -116,7 +85,9 @@
 		  "political":1,
 		  "not_political":0,
 		  "title":"Elizabeth Warren",
+		  "message":"\u003cp\u003eLet's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \u003c/p\u003e\u003cp\u003e Join us to learn more about how to spread Elizabeth’s vision for big, structural change.\u003c/p\u003e",
 		  "thumbnail":"https://fbpac-ads-public.s3.amazonaws.com/v/t1.0-1/p32x32/62053379_10156558715523687_1252765707393826816_n.jpg",
+		  "created_at":"2019-09-24T15:17:02.877Z",
 		  "updated_at":"2019-09-24T17:45:55.601Z",
 		  "lang":"en-US",
 		  "images":[
@@ -136,24 +107,65 @@
 		  "page":"https://www.facebook.com/ElizabethWarren/",
 		  "lower_page":"https://www.facebook.com/elizabethwarren/",
 		  "targetings":null,
+		  "paid_for_by":"Warren for President",
 		  "targetedness":null,
 		  "listbuilding_fundraising_proba":null,
 		  "writable_ad":{
-			 "id":25361,
+			 "id":2672179,
 			 "partisanship":null,
 			 "purpose":null,
 			 "optimism":null,
 			 "attack":null,
 			 "archive_id":null,
-			 "created_at":"2020-01-08T21:19:33.540Z",
-			 "updated_at":"2020-01-23T22:49:06.182Z",
+			 "created_at":"2020-01-24T19:20:16.328Z",
+			 "updated_at":"2020-01-24T19:20:16.328Z",
 			 "text_hash":"34bdaea8efc6ac866e3b4b95664338eb0b121830",
 			 "ad_id":"23843761749580770"
-		  },
-		  "creation_date":"2019-09-24T15:17:02.877Z",
-		  "text":"\u003cp\u003eLet's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \u003c/p\u003e\u003cp\u003e Join us to learn more about how to spread Elizabeth’s vision for big, structural change.\u003c/p\u003e",
-		  "funding_entity":"Warren for President",
-		  "start_date":null
+		  }
+	   },
+	   {
+		  "id":"23843761749590770",
+		  "html":"\u003cdiv class=\"_5pa- userContentWrapper\"\u003e\u003cdiv class=\"_1dwg _1w_m\"\u003e\u003cdiv\u003e\u003cdiv class=\"n_1et7rg-s22 c_1et7rh2qkn clearfix\"\u003e\u003cdiv class=\"clearfix s_1et7rg-tsr\"\u003e\u003ca class=\"_5pb8 g_1et7rh2qkg _8o _8s lfloat _ohe\" data-hovercard=\"https://www.facebook.com/38471053686\" href=\"https://www.facebook.com/ElizabethWarren/\"\u003e\u003cdiv class=\"_38vo\"\u003e\u003c!-- react-mount-point-unstable --\u003e\u003cdiv\u003e\u003cimg class=\"_s0 _4ooo _5xib _44ma _54ru img\" src=\"https://fbpac-ads-public.s3.amazonaws.com/v/t1.0-1/p32x32/62053379_10156558715523687_1252765707393826816_n.jpg\"\u003e\u003c/div\u003e\u003c/div\u003e\u003c/a\u003e\u003cdiv class=\"clearfix _42ef\"\u003e\u003cdiv class=\"rfloat _ohf\"\u003e\u003c/div\u003e\u003cdiv class=\"t_1et7rg-tsk\"\u003e\u003cdiv\u003e\u003cdiv class=\"_6a _5u5j\"\u003e\u003cdiv class=\"_6a _6b\"\u003e\u003c/div\u003e\u003cdiv class=\"_6a _5u5j _6b\"\u003e\u003ch6 class=\"_7tae _14f3 _14f5 _5pbw _5vra\"\u003e\u003cspan class=\"fwn fcg\"\u003e\u003cspan class=\"fcg\"\u003e\u003cspan class=\"fwb\"\u003e\u003ca class=\"profileLink\" data-hovercard=\"https://www.facebook.com/38471053686\" href=\"https://www.facebook.com/ElizabethWarren/\"\u003eElizabeth Warren\u003c/a\u003e\u003c/span\u003e\u003c/span\u003e\u003c/span\u003e\u003c/h6\u003e\u003cdiv\u003e\u003ca class=\"_5pcq\" href=\"#\" id=\"u_fetchstream_29_2e\"\u003e\u003cspan\u003e\u003cspan class=\"_3nlk\"\u003eSponsored\u003c/span\u003e ⋅ Paid for by \u003cspan class=\"_3nlk\"\u003eWarren for President\u003c/span\u003e\u003c/span\u003e\u003c/a\u003e\u003cspan class=\"_6spk\"\u003e · \u003c/span\u003e\u003ca class=\"uiStreamPrivacy inlineBlock fbStreamPrivacy fbPrivacyAudienceIndicator _5pcq\" href=\"#\"\u003e\u003ci class=\"lock img sp_gNqCxYl3J40 sx_689d9c\"\u003e\u003c/i\u003e\u003c/a\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_5pbx userContent _3576\" id=\"js_cvz\"\u003e\u003cp\u003eLet's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \u003c/p\u003e\u003cp\u003e Join us to learn more about how to spread Elizabeth’s vision for big, structural change.\u003c/p\u003e\u003c/div\u003e\u003cdiv class=\"_3x-2\"\u003e\u003cdiv\u003e\u003cdiv class=\"mtm\"\u003e\u003cdiv class=\"_1ci8\"\u003e\u003cdiv\u003e\u003cdiv class=\"_6l4 _59ap _64lx _3eqz _1-9r _2rk1 _20pq _3eqw _3n1j\"\u003e\u003cdiv class=\"_5inf\"\u003e\u003cdiv class=\"uiScaledImageContainer _6m5 fbStoryAttachmentImage _5ind\"\u003e\u003cimg class=\"scaledImageFitWidth img\" src=\"https://fbpac-ads-public.s3.amazonaws.com/v/t45.1600-4/c0.21.1140.598a/p1140x598/68220371_23843666791720770_6870780649381298176_n.png\"\u003e\u003c/div\u003e\u003ca class=\"_5ine\" href=\"https://www.facebook.com/events/313321032835343/\"\u003e\u003c/a\u003e\u003c/div\u003e\u003cdiv class=\"_3z2 _3z3 _2v9b\"\u003e\u003cdiv\u003e\u003cdiv class=\"_3ekx _29_4 _fwr\"\u003e\u003cdiv class=\"_44ae _651x\"\u003e\u003cdiv class=\"_6m3 _--6 _4dhn _opx\"\u003e\u003cdiv class=\"_59tj _2iau _oq1\"\u003e\u003cdiv class=\"_6lz _6mb _1t62\"\u003e\u003cdiv\u003eTUE, OCT 1 AT 7 PM\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_3n1k\"\u003e\u003cdiv class=\"_6m6 _2cnj\"\u003e\u003ca href=\"https://www.facebook.com/events/313321032835343/\"\u003eCharlotte Barnstorm Volunteer Training with Team Warren\u003c/a\u003e\u003c/div\u003e\u003cdiv class=\"_6m7 _3bt9 hidden_elem\"\u003e\u003cdiv class=\"fsm fwn fcg\"\u003e\u003cspan\u003eCharlotte, NC\u003c/span\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_20l4 _svw _5inn\"\u003e310 people interested · 34 people going\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_44af _2e6-\"\u003e\u003cdiv class=\"_6a _6b _fw_ _fx0\"\u003e\u003cdiv class=\"_19ab\" id=\"u_fetchstream_29_2h\"\u003e\u003cspan id=\"u_fetchstream_29_2j\"\u003e\u003ca class=\"_42ft _4jy0 fbEventAttachmentCTAButton _522u _4jy3 _517h _51sy\" href=\"#\"\u003e\u003ci class=\"_3-8_ img sp_kJazzH4jvE1 sx_634b40\"\u003e\u003c/i\u003eInterested\u003c/a\u003e\u003c/span\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_4hk3\"\u003e\u003cdiv class=\"_34js _1kaa _34jv\" id=\"u_fetchstream_29_2k\"\u003e\u003cdiv class=\"_34jx _2cpc _34ju\"\u003e\u003cdiv class=\"_34k0\"\u003e\u003ci class=\"_34k2\"\u003e\u003c/i\u003e\u003c/div\u003e\u003cdiv class=\"_34k3\"\u003ePaid for by Warren for Pr...\u003c/div\u003e\u003ca class=\"_34k6\" href=\"#\" id=\"u_fetchstream_29_2l\"\u003e\u003c/a\u003e\u003c/div\u003e\u003cdiv class=\"_34jw\"\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv class=\"_1dp8\"\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv\u003e\u003c/div\u003e\u003c/div\u003e\u003c/div\u003e\u003cdiv\u003e\u003c/div\u003e\u003c/div\u003e",
+		  "political":3,
+		  "not_political":0,
+		  "title":"Elizabeth Warren",
+		  "message":"\u003cp\u003eLet's get organized! Team Warren will convene a volunteer training in Charlotte on Tuesday, October 1. \u003c/p\u003e\u003cp\u003e Join us to learn more about how to spread Elizabeth’s vision for big, structural change.\u003c/p\u003e",
+		  "thumbnail":"https://fbpac-ads-public.s3.amazonaws.com/v/t1.0-1/p32x32/62053379_10156558715523687_1252765707393826816_n.jpg",
+		  "created_at":"2019-09-27T00:07:27.565Z",
+		  "updated_at":"2019-09-27T01:30:31.743Z",
+		  "lang":"en-US",
+		  "images":[
+			 "https://fbpac-ads-public.s3.amazonaws.com/v/t45.1600-4/c0.21.1140.598a/p1140x598/68220371_23843666791720770_6870780649381298176_n.png"
+		  ],
+		  "impressions":1,
+		  "political_probability":0.998567219990821,
+		  "targeting":null,
+		  "suppressed":false,
+		  "targets":[
+ 
+		  ],
+		  "advertiser":"Elizabeth Warren",
+		  "entities":[
+ 
+		  ],
+		  "page":"https://www.facebook.com/ElizabethWarren/",
+		  "lower_page":"https://www.facebook.com/elizabethwarren/",
+		  "targetings":null,
+		  "paid_for_by":"Warren for President",
+		  "targetedness":null,
+		  "listbuilding_fundraising_proba":null,
+		  "writable_ad":{
+			 "id":2672180,
+			 "partisanship":null,
+			 "purpose":null,
+			 "optimism":null,
+			 "attack":null,
+			 "archive_id":null,
+			 "created_at":"2020-01-24T19:20:16.336Z",
+			 "updated_at":"2020-01-24T19:20:16.336Z",
+			 "text_hash":"34bdaea8efc6ac866e3b4b95664338eb0b121830",
+			 "ad_id":"23843761749590770"
+		  }
 	   }
 	]
  }

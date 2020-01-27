@@ -1,31 +1,21 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import classnames from 'classnames/bind';
+import Ad from '../Ad';
 import sampleAd from './sample_ad.json';
-import './fb_ad.scss';
+import styles from './AdBrowser.module.css';
 
-const Ad = ( { ad: {
-	id,
-	html,
-} } ) => {
-	if ( !id ) {
-		return null;
-	}
-
-	return (
-		<div className="container">
-			<div dangerouslySetInnerHTML={{ __html: html }} />
-		</div>
-	);
-};
+const cx = classnames.bind( styles );
 
 const AdWrapper = ( { ad = sampleAd } ) => {
-	const { ads } = ad;
-	return ads.map( ad => <Ad ad={ad} /> );
+	const { ads, text } = ad;
+	const creativeAd = ads.find( ad => ad.html );
+	return <Ad ad={ad} creativeAd={creativeAd} text={text} />;
 };
 
 const AdBrowser = () => (
-	<Fragment>
+	<div className={cx( 'container' )}>
 		<AdWrapper />
-	</Fragment>
+	</div>
 );
 
 export default AdBrowser;

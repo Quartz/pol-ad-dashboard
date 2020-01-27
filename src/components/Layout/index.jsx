@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import classnames from 'classnames/bind';
 import { Divider, Input } from 'semantic-ui-react';
-import styles from './Layout.css';
+import styles from './Layout.module.css';
 
 const cx = classnames.bind( styles );
 
