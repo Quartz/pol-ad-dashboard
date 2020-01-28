@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Modal } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import styles from './Ad.module.css';
-import API from '../../api';
+import API from 'api';
 // Facebook-ad specific styling
 // eslint-disable-next-line
 import './fb_ad.scss';
