@@ -1,9 +1,11 @@
 .layout {
 	display: flex;
+	overflow-y: scroll;
 }
 
 .left-rail {
-	width: 30%;
+	width: 20%;
+	min-width: 300px;
 	min-height: 100vh;
 	padding: 20px;
 	display: flex;

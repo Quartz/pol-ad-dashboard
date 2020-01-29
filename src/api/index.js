@@ -5,13 +5,24 @@ class API {
 		this.baseURL = DASHBOARD_URL;
 	}
 
-	getAd( adId ) {
-		return fetch( `${this.baseURL}/ads_by_text/${adId}` );
+	async get( url ) {
+		const res = await fetch( url, {
+			method: 'GET',
+			headers: {
+				Authorization: `Basic ${btoa( 'jeremy@qz.com:Lunch?Lunch?Lunch?' )}`,
+			},
+		} );
+		const data = res.json();
+		return data;
 	}
 
-	searchAds( params ) {
-		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param]}` ).join('&');
-		return fetch( `${this.baseuRL}/ads/search.json?${parsedParams}` );
+	getAd( adId ) {
+		return this.get( `${this.baseURL}/ads_by_text/${adId}` );
+	}
+
+	search( params = {} ) {
+		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param]}` ).join( '&' );
+		return this.get( `${this.baseURL}/ads/search.json?${parsedParams}` );
 	}
 };
 

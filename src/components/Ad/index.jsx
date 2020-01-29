@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Modal } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import styles from './Ad.module.css';
-import API from 'api';
 // Facebook-ad specific styling
 // eslint-disable-next-line
 import './fb_ad.scss';
@@ -12,7 +11,7 @@ const cx = classnames.bind( styles );
 const CreativeAd = ( { html } ) => <div dangerouslySetInnerHTML={{ __html: html }} />;
 
 const AdDetails = ( { ad, creativeAd } ) => {
-	const { currency } = ad.ads.find( subAd => !subAd.id ); // find the FBPAC version of the ad which contains more price data
+	const { currency } = ad ? ad.ads.find( subAd => !subAd.id ) : { currency: 'USD' }; // find the FBPAC version of the ad which contains more price data
 	const {
 		created_at,
 		impressions,
