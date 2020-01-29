@@ -9,6 +9,7 @@ class API {
 		const res = await fetch( url, {
 			method: 'GET',
 			headers: {
+				// TODO - plug in actual auth
 				Authorization: `Basic ${btoa( 'jeremy@qz.com:Lunch?Lunch?Lunch?' )}`,
 			},
 		} );
@@ -18,6 +19,16 @@ class API {
 
 	getAd( adId ) {
 		return this.get( `${this.baseURL}/ads_by_text/${adId}` );
+	}
+
+	searchAdsByTopic( topic ) {
+		return this.get( `${this.baseURL}/ads/topic=${topic}` );
+	}
+
+	searchAdsByTarget( params ) {
+		// const targetPairs = Object.entries( params );
+		// TODO: figure out what this query string looks like
+		// return this.get( `${this.baseURL}/ads/targeting` )
 	}
 
 	search( params = {} ) {

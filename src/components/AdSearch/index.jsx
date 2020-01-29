@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import classnames from 'classnames/bind';
 import Ad from 'components/Ad';
-// import sampleAd from './sample_ad.json';
-import styles from './AdBrowser.module.css';
+import styles from './AdSearch.module.css';
 import API from 'api/';
 
 const cx = classnames.bind( styles );
@@ -40,10 +40,14 @@ const AdWrapper = () => {
 	} );
 };
 
-const AdBrowser = () => (
-	<div className={cx( 'container' )}>
-		<AdWrapper />
-	</div>
-);
+const AdSearch = ( { match, location } ) => {
+	console.log( match );
+	console.log( location );
+	return (
+		<div className={cx( 'container' )}>
+			<AdWrapper />
+		</div>
+	);
+};
 
-export default AdBrowser;
+export default withRouter( AdSearch );

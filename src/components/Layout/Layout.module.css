@@ -1,6 +1,7 @@
 .layout {
 	display: flex;
 	overflow-y: scroll;
+	max-width: 2100px;
 }
 
 .left-rail {

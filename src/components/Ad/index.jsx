@@ -43,7 +43,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 				size="fullscreen"
 				trigger={<Button>Ad Details</Button>}
 				style={{
-					height: '80vh',
+					minHeight: '80vh',
 				}}
 			>
 				<div className={cx( 'modal-content' )}>
