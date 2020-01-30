@@ -2,6 +2,7 @@
 import React from 'react';
 import Ad from 'components/Ad';
 
+// use this for conditional logic to return consistent Ad component despite different possible types of ads as props
 const AdWrapper = ( { adData } ) => adData.map( ( ad, idx ) => {
 	const { ads, text } = ad;
 
