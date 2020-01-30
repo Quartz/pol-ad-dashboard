@@ -6,7 +6,6 @@ const Search = ( { history } ) => {
 	const [ searchTerm, setSearchTerm ] = useState( '' );
 
 	const onSubmit = () => {
-		console.log( searchTerm );
 		history.push( { pathname: '/search', search: `?search=${encodeURI( searchTerm )}` } );
 	};
 

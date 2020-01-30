@@ -22,8 +22,6 @@ const AdBrowser = () => {
 		return null;
 	}
 
-	console.log( adData );
-
 	return (
 		<div className={cx( 'container' )}>
 			<AdWrapper adData={adData} />
