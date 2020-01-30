@@ -29,6 +29,8 @@ const AdSearch = ( { location: { search } } ) => {
 		getLatestAds();
 	}, [ search ] );
 
+	console.log( adData );
+
 	if ( !adData.length ) {
 		return null;
 	}

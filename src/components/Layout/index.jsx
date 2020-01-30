@@ -1,21 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import classnames from 'classnames/bind';
-import { Divider, Input } from 'semantic-ui-react';
+import Search from 'components/Search';
 import styles from './Layout.module.css';
 
 const cx = classnames.bind( styles );
 
-const PlaceholderSearch = () => (
-	<Fragment>
-		<Divider />
-		<Input icon="search" placeholder="Search" />
-	</Fragment>
-);
-
 const Layout = ( { children } ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
-			<PlaceholderSearch />
+			<Search />
 		</div>
 		<div className={cx( 'content' )}>
 			{

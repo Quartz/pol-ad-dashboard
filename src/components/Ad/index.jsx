@@ -28,16 +28,26 @@ const AdDetails = ( { ad, creativeAd } ) => {
 			className={cx( 'details-container' )}
 		>
 			<h3 className={cx( 'title' )}>{title}</h3>
-			<h4 className={cx( 'paid-for' )}>Paid for by {`${paid_for_by}`}</h4>
-			<p className={cx( 'sub' )}>
-				<span>{`${currency}`}</span> • <span>{`${impressions} ${impressions > 1 ? 'impressions' : 'impression'}`}</span>
-			</p>
+			<h4 className={cx( 'paid-for' )}>Paid for by {`${paid_for_by || 'Unknown'}`}</h4>
+			{
+				impressions
+					? (
+						<p className={cx( 'sub' )}>
+							<span>{`${currency}`}</span> • <span>{`${impressions} ${impressions > 1 ? 'impressions' : 'impression'}`}</span>
+						</p>
+					) : null
+			}
 			<p className={cx( 'sub' )}>
 				<span>First seen: {`${createdAt.toLocaleDateString( 'en-US', { dateStyle: 'full', timeStyle: 'long' } )}`}</span>
 			</p>
-			<p className={cx( 'sub' )}>
-				<span>Last updated: {`${updatedAt.toLocaleDateString( 'en-US', { dateStyle: 'full', timeStyle: 'long' } )}`}</span>
-			</p>
+			{
+				updated_at
+					? (
+						<p className={cx( 'sub' )}>
+							<span>Last updated: {`${updatedAt.toLocaleDateString( 'en-US', { dateStyle: 'full', timeStyle: 'long' } )}`}</span>
+						</p>
+					) : null
+			}
 			<Modal
 				dimmer="inverted"
 				size="fullscreen"
@@ -58,10 +68,14 @@ const AdDetails = ( { ad, creativeAd } ) => {
 };
 
 const Ad = ( { ad, creativeAd, text } ) => {
-	const { id, html } = creativeAd;
+	const { html } = creativeAd;
 
-	if ( !id ) {
-		return null;
+	if ( !html ) {
+		const adDetails = {
+			created_at: creativeAd.creation_date,
+			title: creativeAd.text,
+		};
+		return <AdDetails creativeAd={adDetails} text={text}/>;
 	}
 
 	return (
