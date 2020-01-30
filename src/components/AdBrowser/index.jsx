@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import classnames from 'classnames/bind';
-import Ad from 'components/Ad';
-// import sampleAd from './sample_ad.json';
 import styles from './AdBrowser.module.css';
+import AdWrapper from 'components/AdWrapper';
 import API from 'api/';
 
 const cx = classnames.bind( styles );
 
-const AdWrapper = () => {
+const AdBrowser = () => {
 	const [ adData, setAdData ] = useState( [] );
 
+	// go get some ads on component load
 	useEffect( () => {
 		const getLatestAds = async () => {
 			const latestAds = await API.search();
@@ -24,26 +24,10 @@ const AdWrapper = () => {
 
 	console.log( adData );
 
-	return adData.map( ( ad, idx ) => {
-		const { ads, text } = ad;
-
-		if ( !ads ) {
-			return (
-				<Ad key={`${ad.id}-${idx}`} creativeAd={ad} text={text} />
-			);
-		}
-
-		const creativeAd = ads.find( ad => ad.html );
-		return (
-			<Ad ad={ad} creativeAd={creativeAd} text={text} />
-		);
-	} );
-};
-
-const AdBrowser = () => (
-	<div className={cx( 'container' )}>
-		<AdWrapper />
-	</div>
-);
-
+	return (
+		<div className={cx( 'container' )}>
+			<AdWrapper adData={adData} />
+		</div>
+	);
+}
 export default AdBrowser;

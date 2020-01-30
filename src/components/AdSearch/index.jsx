@@ -1,51 +1,41 @@
 import React, { useEffect, useState } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, useLocation } from 'react-router-dom';
 import classnames from 'classnames/bind';
-import Ad from 'components/Ad';
 import styles from './AdSearch.module.css';
+import AdWrapper from 'components/AdWrapper';
 import API from 'api/';
 
 const cx = classnames.bind( styles );
 
-const AdWrapper = () => {
+const useQuery = () => {
+	const searchParams = {};
+	const toParse = new URLSearchParams( useLocation().search );
+	const keys = toParse.keys();
+	for ( const key of keys ) {
+		searchParams[key] = toParse.get( key ).split( ',' );
+	}
+	return searchParams;
+};
+
+const AdSearch = ( { location: { search } } ) => {
 	const [ adData, setAdData ] = useState( [] );
+	const query = useQuery();
 
 	useEffect( () => {
 		const getLatestAds = async () => {
-			const latestAds = await API.search();
+			const latestAds = await API.search( query );
 			setAdData( latestAds );
 		};
 		getLatestAds();
-	}, [] );
+	}, [ search ] );
 
 	if ( !adData.length ) {
 		return null;
 	}
 
-	console.log( adData );
-
-	return adData.map( ( ad, idx ) => {
-		const { ads, text } = ad;
-
-		if ( !ads ) {
-			return (
-				<Ad key={`${ad.id}-${idx}`} creativeAd={ad} text={text} />
-			);
-		}
-
-		const creativeAd = ads.find( ad => ad.html );
-		return (
-			<Ad ad={ad} creativeAd={creativeAd} text={text} />
-		);
-	} );
-};
-
-const AdSearch = ( { match, location } ) => {
-	console.log( match );
-	console.log( location );
 	return (
 		<div className={cx( 'container' )}>
-			<AdWrapper />
+			<AdWrapper adData={adData} />
 		</div>
 	);
 };

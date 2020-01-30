@@ -32,7 +32,8 @@ class API {
 	}
 
 	search( params = {} ) {
-		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param]}` ).join( '&' );
+		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param].join( ',' )}` ).join( '&' );
+		console.log( parsedParams );
 		return this.get( `${this.baseURL}/ads/search.json?${parsedParams}` );
 	}
 };
