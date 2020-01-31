@@ -33,6 +33,8 @@ const AdSearch = ( { location: { search } } ) => {
 		return null;
 	}
 
+	console.log( adData );
+
 	return (
 		<div className={cx( 'container' )}>
 			<AdWrapper adData={adData} />

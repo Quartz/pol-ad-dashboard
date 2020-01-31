@@ -148,6 +148,9 @@
 	margin-right: 8px;
 	border-radius: 16px;
 	overflow: hidden;
+	& img {
+		width: 100%;
+	}
   }
   
   ._5x46,
@@ -248,6 +251,7 @@
 	}
 	> img:first-of-type {
 	  display: block;
+	  width: 100%;
 	}
   }
   
