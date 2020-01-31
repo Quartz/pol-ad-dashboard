@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Loader } from 'semantic-ui-react';
 import { withRouter, useLocation } from 'react-router-dom';
 import classnames from 'classnames/bind';
 import styles from './AdSearch.module.css';
@@ -19,21 +20,28 @@ const useQuery = () => {
 
 const AdSearch = ( { location: { search } } ) => {
 	const [ adData, setAdData ] = useState( [] );
+	const [ loading, setLoading ] = useState( true );
 	const query = useQuery();
 
 	useEffect( () => {
 		const getLatestAds = async () => {
+			setLoading( true );
 			const latestAds = await API.search( query );
 			setAdData( latestAds );
+			setLoading( false );
 		};
 		getLatestAds();
 	}, [ search ] );
 
-	if ( !adData.length ) {
-		return null;
-	}
-
 	console.log( adData );
+
+	if ( loading ) {
+		return (
+			<div className={cx( 'container' )}>
+				<Loader active={loading} />
+			</div>
+		);
+	}
 
 	return (
 		<div className={cx( 'container' )}>
