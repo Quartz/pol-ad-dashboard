@@ -19,3 +19,7 @@
 	background-color: #EEEEEE;
 	flex-grow: 1;
 }
+
+.search-targets {
+	margin: 0 -12px;
+}
