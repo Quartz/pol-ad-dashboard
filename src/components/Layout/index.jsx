@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Button, Divider } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
+import { COMMON_TARGETS } from './commonTargets';
 import Targets from 'components/Ad/Targets';
 import classnames from 'classnames/bind';
 import Search from 'components/Search';
@@ -23,11 +24,22 @@ const TargetFilters = ( { search } ) => {
 	}
 
 	return (
-		<div className={cx( 'search-targets' )}>
-			<Targets targets={formattedTargets} />
-		</div>
+		<Fragment>
+			<Divider />
+			<div className={cx( 'search-targets' )}>
+				<h3 className={cx( 'title' )}>Applied Targets:</h3>
+				<Targets targets={formattedTargets} />
+			</div>
+		</Fragment>
 	);
 };
+
+const CommonTargets = () => (
+	<div className={cx( 'search-targets' )}>
+		<h3 className={cx( 'title' )}>Common Targets:</h3>
+		<Targets targets={COMMON_TARGETS} />
+	</div>
+);
 
 const Layout = ( { history, location, children } ) => (
 	<div className={cx( 'layout' )}>
@@ -37,8 +49,9 @@ const Layout = ( { history, location, children } ) => (
 			</Button>
 			<Divider />
 			<Search />
-			<Divider />
 			<TargetFilters search={location.search} />
+			<Divider />
+			<CommonTargets />
 		</div>
 		<div className={cx( 'content' )}>
 			{
