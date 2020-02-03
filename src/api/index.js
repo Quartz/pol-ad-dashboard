@@ -26,9 +26,11 @@ class API {
 	}
 
 	searchAdsByTarget( params ) {
-		// const targetPairs = Object.entries( params );
-		// TODO: figure out what this query string looks like
-		// return this.get( `${this.baseURL}/ads/targeting` )
+		// sample target query: http://dashboard.qz.ai/ads/search.json?targeting=[["Interest","Sean%20Hannity"]]
+		// sample targeting = { targets: { Interest: 'Sean Hannity', Age: '55 and older', MinAge: 55 } }
+		if ( !params.targets ) {
+			return this.search( params );
+		}
 	}
 
 	search( params = {} ) {

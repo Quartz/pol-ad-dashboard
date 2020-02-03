@@ -1,0 +1,27 @@
+.title {
+	width: 500px;
+}
+
+.details-container {
+	background-color: #F1F4F8;
+	padding: 12px;
+	margin: 5px 0;
+	border-radius: 0 0 4px 4px;
+}
+
+.title, .paid-for {
+	margin: 10px 0;
+}
+
+.sub {
+	color: #B2B2B2;
+}
+
+.modal-content {
+	display: flex;
+	margin: 12px;
+}
+
+.right-rail {
+	margin: 12px;
+}
