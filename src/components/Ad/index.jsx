@@ -1,7 +1,7 @@
 import React from 'react';
 import AdDetails, { CreativeAd } from './AdDetails';
 import classnames from 'classnames/bind';
-import TargetButton from './TargetButton';
+import Targets from './Targets';
 import styles from './Ad.module.css';
 // Facebook-ad specific styling
 // eslint-disable-next-line
@@ -36,11 +36,7 @@ const Ad = ( { ad, creativeAd, text } ) => {
 			{
 				targets && targets[0]
 					? (
-						<div className={cx( 'targets' )}>
-							{
-								targets.map( target => <TargetButton target={target} /> )
-							}
-						</div>
+						<Targets targets={targets} />
 					) : null
 			}
 			<AdDetails ad={ad} creativeAd={creativeAd} text={text} />

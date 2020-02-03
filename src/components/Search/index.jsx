@@ -17,6 +17,7 @@ const Search = ( { history } ) => {
 					icon="search"
 					placeholder="Search"
 					onChange={( e ) => setSearchTerm( e.target.value )}
+					value={searchTerm}
 				/>
 			</Form>
 		</Fragment>
