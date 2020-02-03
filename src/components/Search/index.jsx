@@ -2,12 +2,17 @@ import React, { useState, Fragment } from 'react';
 import { Form, Input } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 
-const Search = ( { history } ) => {
+const Search = ( { history, location: { search } } ) => {
 	const [ searchTerm, setSearchTerm ] = useState( '' );
 
 	const onSubmit = () => {
-		const search = searchTerm === '' ? '' : `?search=${encodeURI( searchTerm )}`;
-		history.push( { pathname: '/search', search } );
+		const params = new URLSearchParams( search );
+		if ( searchTerm === '' ) {
+			params.delete( 'search' );
+		} else {
+			params.set( 'search', searchTerm );
+		}
+		history.push( { pathname: '/search', search: params.toString() } );
 	};
 
 	return (

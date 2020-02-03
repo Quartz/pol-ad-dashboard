@@ -32,7 +32,7 @@ const TargetFilters = ( { search } ) => {
 const Layout = ( { history, location, children } ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
-			<Button onClick={ () => history.push( location.pathname ) }>
+			<Button onClick={() => history.push( location.pathname )}>
 				Clear All Filters
 			</Button>
 			<Divider />
