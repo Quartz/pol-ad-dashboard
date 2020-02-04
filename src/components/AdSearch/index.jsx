@@ -20,9 +20,9 @@ const useQuery = () => {
 
 const AdMeta = ( { totalCount, pages, page } ) => (
 	<div className={cx( 'meta-container' )}>
-		<h3>Total Ads: {totalCount}</h3>
-		<h3>Pages: {pages}</h3>
-		<h3>Current Page: {page}</h3>
+		<h4>Total Ads: {totalCount}</h4>
+		<h4>Pages: {pages}</h4>
+		<h4>Current Page: {page}</h4>
 	</div>
 )
 

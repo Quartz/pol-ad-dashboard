@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Checkbox, Divider } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-import { COMMON_TARGETS } from './constants';
+import { COMMON_TARGETS } from '../constants';
 import Targets, { TargetFilters } from 'components/Targets';
+import Topics from 'components/Topics';
 import classnames from 'classnames/bind';
 import Search from 'components/Search';
 import styles from './Layout.module.css';
@@ -11,7 +12,7 @@ const cx = classnames.bind( styles );
 
 const CommonTargets = () => (
 	<div className={cx( 'search-targets' )}>
-		<h3 className={cx( 'title' )}>Common Targets:</h3>
+		<h4 className={cx( 'title' )}>Common Targets:</h4>
 		<Targets targets={COMMON_TARGETS} />
 	</div>
 );
@@ -37,6 +38,8 @@ const Layout = ( { history, location, children } ) => (
 					}
 				}}
 			/>
+			<Divider />
+			<Topics />
 			<TargetFilters search={location.search} />
 			<Divider />
 			<CommonTargets />

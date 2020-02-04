@@ -24,7 +24,7 @@ export const TargetFilters = ( { search } ) => {
 		<Fragment>
 			<Divider />
 			<div className={cx( 'search-targets' )}>
-				<h3 className={cx( 'title' )}>Applied Targets:</h3>
+				<h4 className={cx( 'title' )}>Applied Targets:</h4>
 				<Targets targets={formattedTargets} />
 			</div>
 		</Fragment>

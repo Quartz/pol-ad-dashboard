@@ -26,7 +26,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 		<div
 			className={cx( 'details-container' )}
 		>
-			<h3 className={cx( 'title' )}>{title}</h3>
+			<h4 className={cx( 'title' )}>{title}</h4>
 			<h4 className={cx( 'paid-for' )}>Paid for by {`${paid_for_by || 'Unknown'}`}</h4>
 			{
 				impressions
