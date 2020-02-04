@@ -12,10 +12,10 @@ const TopicsFilter = ( { history, location: { search } } ) => {
 		const params = new URLSearchParams( search );
 		if ( value !== '' ) {
 			params.set( 'topic', value.toLowerCase() );
+			params.delete( 'page' );
 		} else {
 			params.delete( 'topic' );
 		}
-		console.log( params.toString() );
 		history.push( { pathname: '/search', search: params.toString() } );
 	};
 

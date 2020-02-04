@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Loader } from 'semantic-ui-react';
+import { Loader, Pagination } from 'semantic-ui-react';
 import { withRouter, useLocation } from 'react-router-dom';
 import classnames from 'classnames/bind';
 import styles from './AdSearch.module.css';
@@ -18,15 +18,14 @@ const useQuery = () => {
 	return searchParams;
 };
 
-const AdMeta = ( { totalCount, pages, page } ) => (
+const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 	<div className={cx( 'meta-container' )}>
-		<h4>Total Ads: {totalCount}</h4>
-		<h4>Pages: {pages}</h4>
-		<h4>Current Page: {page}</h4>
+		<h4 className={cx( 'meta-title' )}>Total Ads: {totalCount.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )}</h4>
+		<Pagination totalPages={pages} defaultActivePage={page} onPageChange={setPage} />
 	</div>
-)
+);
 
-const AdSearch = ( { location: { search } } ) => {
+const AdSearch = ( { history, location, location: { search } } ) => {
 	const [ adData, setAdData ] = useState( [] );
 	const [ loading, setLoading ] = useState( true );
 	const query = useQuery();
@@ -51,12 +50,34 @@ const AdSearch = ( { location: { search } } ) => {
 		);
 	}
 
+	const setPage = ( _, data ) => {
+		const params = new URLSearchParams( search );
+		params.set( 'page', data.activePage );
+		history.push( { pathname: location.pathname, search: params.toString() } );
+	};
+
 	return (
 		<Fragment>
-			<AdMeta totalCount={adData.total_ads} pages={adData.n_pages} page={adData.page}/>
+			<AdMeta
+				pages={adData.n_pages}
+				page={adData.page}
+				setPage={setPage}
+				totalCount={adData.total_ads}
+			/>
 			<div className={cx( 'container' )}>
 				<AdWrapper adData={adData.ads} />
 			</div>
+			{
+				adData.ads.length > 10
+					? (
+						<AdMeta
+							pages={adData.n_pages}
+							page={adData.page}
+							setPage={setPage}
+							totalCount={adData.total_ads}
+						/>
+					) : null
+			}
 		</Fragment>
 	);
 };

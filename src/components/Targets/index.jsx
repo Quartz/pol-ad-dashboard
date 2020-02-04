@@ -25,7 +25,7 @@ export const TargetFilters = ( { search } ) => {
 			<Divider />
 			<div className={cx( 'search-targets' )}>
 				<h4 className={cx( 'title' )}>Applied Targets:</h4>
-				<Targets targets={formattedTargets} />
+				<WrappedTargets targets={formattedTargets} />
 			</div>
 		</Fragment>
 	);
@@ -79,7 +79,6 @@ const Targets = ( {
 			// otherwise add new target to list and push to history
 			newTargets = parsedTargets.concat( [ [ type, segment ] ] );
 		}
-
 		params.set( 'targeting', JSON.stringify( newTargets ) );
 		history.push( { pathname: '/search', search: params.toString() } );
 	};
@@ -98,4 +97,6 @@ const Targets = ( {
 	);
 };
 
-export default withRouter( Targets );
+const WrappedTargets = withRouter( Targets );
+
+export default WrappedTargets;

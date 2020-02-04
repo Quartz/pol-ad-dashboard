@@ -3,3 +3,6 @@
 	display: inline-block;
 }
 
+.search-targets > .container {
+	margin: 0px -12px;
+}

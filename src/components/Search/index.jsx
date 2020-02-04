@@ -9,6 +9,7 @@ const Search = ( { history, location: { search } } ) => {
 		const params = new URLSearchParams( search );
 		if ( searchTerm === '' ) {
 			params.delete( 'search' );
+			params.delete( 'page' );
 		} else {
 			params.set( 'search', searchTerm );
 		}

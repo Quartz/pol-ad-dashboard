@@ -17,10 +17,10 @@ const CommonTargets = () => (
 	</div>
 );
 
-const Layout = ( { history, location, children } ) => (
+const Layout = ( { history, location: { search, pathname }, children } ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
-			<Button onClick={() => history.push( location.pathname )}>
+			<Button onClick={() => history.push( pathname )}>
 				Clear All Filters
 			</Button>
 			<Divider />
@@ -28,19 +28,19 @@ const Layout = ( { history, location, children } ) => (
 			<Divider />
 			<Checkbox
 				label="Only ads without 'Paid For By' disclaimer"
-				checked={location.search.includes( 'no_payer=true' )}
+				checked={search.includes( 'no_payer=true' )}
 				onClick={() => {
-					if ( location.search.includes( 'no_payer=true' ) ) {
-						const newSearch = location.search ? location.search.replace( '&no_payer=true', '' ) : '';
-						history.push( { pathname: location.pathname, search: `${newSearch}` } );
+					if ( search.includes( 'no_payer=true' ) ) {
+						const newSearch = search ? search.replace( '&no_payer=true', '' ) : '';
+						history.push( { pathname, search: `${newSearch}` } );
 					} else {
-						history.push( { pathname: location.pathname, search: location.search ? `${location.search}&no_payer=true` : '?&no_payer=true' } );
+						history.push( { pathname, search: search ? `${search}&no_payer=true` : '?&no_payer=true' } );
 					}
 				}}
 			/>
 			<Divider />
 			<Topics />
-			<TargetFilters search={location.search} />
+			<TargetFilters search={search} />
 			<Divider />
 			<CommonTargets />
 		</div>

@@ -4,4 +4,11 @@
 
 .meta-container {
 	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+.meta-title {
+	margin: 0;
 }
