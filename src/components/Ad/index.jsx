@@ -1,7 +1,7 @@
 import React from 'react';
 import AdDetails, { CreativeAd } from './AdDetails';
 import classnames from 'classnames/bind';
-import Targets from './Targets';
+import Targets from '../Targets';
 import styles from './Ad.module.css';
 // Facebook-ad specific styling
 // eslint-disable-next-line

@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Divider, Icon } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import styles from './Targets.module.css';
 
 const cx = classnames.bind( styles );
+
+export const TargetFilters = ( { search } ) => {
+	const params = new URLSearchParams( search );
+	const targets = JSON.parse( params.get( 'targeting' ) );
+	const formattedTargets = [];
+
+	if ( !targets || !targets.length ) {
+		return null;
+	}
+
+	for ( const targetParam of targets ) {
+		const [ target, segment ] = targetParam;
+		formattedTargets.push( { target, segment } );
+	}
+
+	return (
+		<Fragment>
+			<Divider />
+			<div className={cx( 'search-targets' )}>
+				<h3 className={cx( 'title' )}>Applied Targets:</h3>
+				<Targets targets={formattedTargets} />
+			</div>
+		</Fragment>
+	);
+};
 
 const TargetButton = ( { isPresent, target, targetSearch } ) => {
 	const { target: type, segment } = target;

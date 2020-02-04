@@ -1,38 +1,13 @@
-import React, { Fragment } from 'react';
-import { Button, Divider } from 'semantic-ui-react';
+import React from 'react';
+import { Button, Checkbox, Divider } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-import { COMMON_TARGETS } from './commonTargets';
-import Targets from 'components/Ad/Targets';
+import { COMMON_TARGETS } from './constants';
+import Targets, { TargetFilters } from 'components/Targets';
 import classnames from 'classnames/bind';
 import Search from 'components/Search';
 import styles from './Layout.module.css';
 
 const cx = classnames.bind( styles );
-
-const TargetFilters = ( { search } ) => {
-	const params = new URLSearchParams( search );
-	const targets = JSON.parse( params.get( 'targeting' ) );
-	const formattedTargets = [];
-
-	if ( !targets || !targets.length ) {
-		return null;
-	}
-
-	for ( const targetParam of targets ) {
-		const [ target, segment ] = targetParam;
-		formattedTargets.push( { target, segment } );
-	}
-
-	return (
-		<Fragment>
-			<Divider />
-			<div className={cx( 'search-targets' )}>
-				<h3 className={cx( 'title' )}>Applied Targets:</h3>
-				<Targets targets={formattedTargets} />
-			</div>
-		</Fragment>
-	);
-};
 
 const CommonTargets = () => (
 	<div className={cx( 'search-targets' )}>
@@ -49,6 +24,19 @@ const Layout = ( { history, location, children } ) => (
 			</Button>
 			<Divider />
 			<Search />
+			<Divider />
+			<Checkbox
+				label="Only ads without 'Paid For By' disclaimer"
+				checked={location.search.includes( 'no_payer=true' )}
+				onClick={() => {
+					if ( location.search.includes( 'no_payer=true' ) ) {
+						const newSearch = location.search ? location.search.replace( '&no_payer=true', '' ) : '';
+						history.push( { pathname: location.pathname, search: `${newSearch}` } );
+					} else {
+						history.push( { pathname: location.pathname, search: location.search ? `${location.search}&no_payer=true` : '?&no_payer=true' } );
+					}
+				}}
+			/>
 			<TargetFilters search={location.search} />
 			<Divider />
 			<CommonTargets />

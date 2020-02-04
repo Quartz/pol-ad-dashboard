@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Loader } from 'semantic-ui-react';
 import { withRouter, useLocation } from 'react-router-dom';
 import classnames from 'classnames/bind';
@@ -18,6 +18,14 @@ const useQuery = () => {
 	return searchParams;
 };
 
+const AdMeta = ( { totalCount, pages, page } ) => (
+	<div className={cx( 'meta-container' )}>
+		<h3>Total Ads: {totalCount}</h3>
+		<h3>Pages: {pages}</h3>
+		<h3>Current Page: {page}</h3>
+	</div>
+)
+
 const AdSearch = ( { location: { search } } ) => {
 	const [ adData, setAdData ] = useState( [] );
 	const [ loading, setLoading ] = useState( true );
@@ -26,8 +34,8 @@ const AdSearch = ( { location: { search } } ) => {
 	useEffect( () => {
 		const getLatestAds = async () => {
 			setLoading( true );
-			const latestAds = await API.search( query );
-			setAdData( latestAds );
+			const data = await API.search( query );
+			setAdData( data );
 			setLoading( false );
 		};
 		getLatestAds();
@@ -44,9 +52,12 @@ const AdSearch = ( { location: { search } } ) => {
 	}
 
 	return (
-		<div className={cx( 'container' )}>
-			<AdWrapper adData={adData} />
-		</div>
+		<Fragment>
+			<AdMeta totalCount={adData.total_ads} pages={adData.n_pages} page={adData.page}/>
+			<div className={cx( 'container' )}>
+				<AdWrapper adData={adData.ads} />
+			</div>
+		</Fragment>
 	);
 };
 

@@ -1,3 +1,7 @@
 .container {
 	columns: 510px auto;
 }
+
+.meta-container {
+	display: flex;
+}
