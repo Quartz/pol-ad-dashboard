@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Checkbox, Divider } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
+import { compose, withURLSearchParams } from 'utils';
 import { COMMON_TARGETS } from '../constants';
 import Targets, { TargetFilters } from 'components/Targets';
 import Topics from 'components/Topics';
@@ -17,7 +18,7 @@ const CommonTargets = () => (
 	</div>
 );
 
-const Layout = ( { history, location: { search, pathname }, children } ) => (
+const Layout = ( { history, location: { search, pathname }, toggleParam, children } ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
 			<Button onClick={() => history.push( pathname )}>
@@ -29,18 +30,7 @@ const Layout = ( { history, location: { search, pathname }, children } ) => (
 			<Checkbox
 				label="Only ads without 'Paid For By' disclaimer"
 				checked={search.includes( 'no_payer=true' )}
-				onClick={() => {
-					const params = new URLSearchParams( search );
-					params.delete( 'page' );
-					if ( params.get( 'no_payer' ) ) {
-						params.delete( 'no_payer' );
-						const newSearch = params.toString();
-						history.push( { pathname, search: `${newSearch}` } );
-					} else {
-						params.set( 'no_payer', true );
-						history.push( { pathname, search: params.toString() } );
-					}
-				}}
+				onClick={() => toggleParam( 'no_payer' )}
 			/>
 			<Divider />
 			<Topics />
@@ -56,4 +46,4 @@ const Layout = ( { history, location: { search, pathname }, children } ) => (
 	</div>
 );
 
-export default withRouter( Layout );
+export default withURLSearchParams( Layout );

@@ -22,7 +22,11 @@
                     ],
                     [
                         "api",
-                        "./src/api",
+                        "./src/api"
+                    ],
+                    [
+                        "utils",
+                        "./src/utils"
                     ]
                 ],
                 "extensions": [
