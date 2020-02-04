@@ -30,11 +30,15 @@ const Layout = ( { history, location: { search, pathname }, children } ) => (
 				label="Only ads without 'Paid For By' disclaimer"
 				checked={search.includes( 'no_payer=true' )}
 				onClick={() => {
-					if ( search.includes( 'no_payer=true' ) ) {
-						const newSearch = search ? search.replace( '&no_payer=true', '' ) : '';
+					const params = new URLSearchParams( search );
+					params.delete( 'page' );
+					if ( params.get( 'no_payer' ) ) {
+						params.delete( 'no_payer' );
+						const newSearch = params.toString();
 						history.push( { pathname, search: `${newSearch}` } );
 					} else {
-						history.push( { pathname, search: search ? `${search}&no_payer=true` : '?&no_payer=true' } );
+						params.set( 'no_payer', true );
+						history.push( { pathname, search: params.toString() } );
 					}
 				}}
 			/>
