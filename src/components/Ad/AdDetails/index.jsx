@@ -11,6 +11,7 @@ export const CreativeAd = ( { html } ) => <div dangerouslySetInnerHTML={{ __html
 const AdDetails = ( { ad, creativeAd } ) => {
 	const { currency } = ad ? ad.ads.find( subAd => !subAd.id ) : { currency: 'USD' }; // find the FBPAC version of the ad which contains more price data
 	const {
+		advertiser,
 		created_at,
 		creation_date,
 		impressions,
@@ -28,7 +29,8 @@ const AdDetails = ( { ad, creativeAd } ) => {
 			className={cx( 'details-container' )}
 		>
 			<h4 className={cx( 'title' )}>{title}</h4>
-			<h4 className={cx( 'paid-for' )}>Paid for by {paid_for_by ? ( <Link to={`advertiser/${encodeURI( paid_for_by )}`}>{paid_for_by}</Link> )  : 'Unknown'}</h4>
+			<h4 className={cx( 'title' )}>Advertiser: <Link to={`advertiser/${encodeURI( advertiser )}`}>{advertiser}</Link></h4>
+			<h4 className={cx( 'paid-for' )}>Paid for by {paid_for_by || 'Unknown'}</h4>
 			{
 				impressions
 					? (

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Loader, Pagination } from 'semantic-ui-react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { withURLSearchParams } from 'utils';
 import classnames from 'classnames/bind';
 import styles from './AdSearch.module.css';
@@ -9,12 +9,20 @@ import API from 'api/';
 
 const cx = classnames.bind( styles );
 
-const useQuery = () => {
+const useQuery = ( pathname ) => {
+	const params = useParams();
+	const { search } = useLocation();
 	const searchParams = {};
-	const toParse = new URLSearchParams( useLocation().search );
-	const keys = toParse.keys();
-	for ( const key of keys ) {
-		searchParams[key] = toParse.get( key ).split( ',' );
+	if ( pathname === '/search' ) {
+		const toParse = new URLSearchParams( search );
+		const keys = toParse.keys();
+		for ( const key of keys ) {
+			searchParams[key] = toParse.get( key ).split( ',' );
+		}
+	}
+	if ( pathname.includes( '/advertiser' ) ) {
+		const { advertiser } = params;
+		searchParams.search = [ advertiser ];
 	}
 	return searchParams;
 };
@@ -26,14 +34,15 @@ const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 	</div>
 );
 
-const AdSearch = ( { location: { search }, setParam } ) => {
+const AdSearch = ( { location: { pathname, search }, setParam } ) => {
 	const [ adData, setAdData ] = useState( { n_pages: 0, page: '1', total_ads: 0, ads: [] } );
 	const [ loading, setLoading ] = useState( true );
-	const query = useQuery();
+	const query = useQuery( pathname );
 
 	useEffect( () => {
 		const getLatestAds = async () => {
 			setLoading( true );
+			console.log( query );
 			const data = await API.search( query );
 			setAdData( data );
 			setLoading( false );
@@ -41,7 +50,7 @@ const AdSearch = ( { location: { search }, setParam } ) => {
 		getLatestAds();
 	}, [ search ] );
 
-	// console.log( adData );
+	console.log( adData );
 
 	const setPage = ( _, data ) => setParam( 'page', data.activePage );
 

@@ -65,8 +65,8 @@ const withURLSearchParams = WrappedComponent => {
 		}
 
 		pushParams = ( params ) => {
-			const { history, location: { pathname } } = this.props;
-			this.setState( { params: new URLSearchParams( params ) }, () => history.push( { pathname, search: params.toString() } ) )
+			const { history } = this.props;
+			this.setState( { params: new URLSearchParams( params ) }, () => history.push( { pathname: '/search', search: params.toString() } ) )
 		}
 
 		render() {
