@@ -5,13 +5,14 @@
 }
 
 .left-rail {
-	width: 20%;
+	width: 23%;
 	min-width: 300px;
 	min-height: 100vh;
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	flex-shrink: 0;
+	overflow-x: scroll;
 }
 
 .content {
@@ -20,10 +21,23 @@
 	flex-grow: 1;
 }
 
-.search-targets {
-	margin: 0 -12px;
+.target-list {
+	list-style: none;
+	padding: 0;
 }
 
-.title {
-	margin-left: 12px;
+.target-item { 
+	margin: 12px 0;
+}
+
+.target-details {
+	font-size: 16px;
+}
+
+.target-details:hover {
+	cursor: pointer;
+}
+
+.target-details > summary:focus {
+	outline: none;
 }

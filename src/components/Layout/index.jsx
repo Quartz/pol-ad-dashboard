@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Checkbox, Divider } from 'semantic-ui-react';
-// import { withRouter } from 'react-router-dom';
-import { compose, withURLSearchParams } from 'utils';
-import { COMMON_TARGETS } from '../constants';
+import { withURLSearchParams } from 'utils';
+import { COMMON_TARGETS_GROUPED } from '../constants';
 import Targets, { TargetFilters } from 'components/Targets';
 import Topics from 'components/Topics';
 import classnames from 'classnames/bind';
@@ -14,7 +13,25 @@ const cx = classnames.bind( styles );
 const CommonTargets = () => (
 	<div className={cx( 'search-targets' )}>
 		<h4 className={cx( 'title' )}>Common Targets:</h4>
-		<Targets targets={COMMON_TARGETS} />
+		<ul className={cx( 'target-list' )}>
+			{
+				Object.keys( COMMON_TARGETS_GROUPED ).sort().map( target => {
+					const vals = COMMON_TARGETS_GROUPED[target].map( val => ( { target, segment: val } ) );
+					return (
+						<li className={cx( 'target-item' )}>
+							<details className={cx( 'target-details' )}>
+								<summary>
+									{target}
+								</summary>
+								<div className={cx( 'target-group' )}>
+									<Targets targets={vals} />
+								</div>
+							</details>
+						</li>
+					);
+				} )
+			}
+		</ul>
 	</div>
 );
 
