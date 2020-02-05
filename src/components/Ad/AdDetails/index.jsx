@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Modal } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import styles from './AdDetails.module.css';
@@ -27,7 +28,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 			className={cx( 'details-container' )}
 		>
 			<h4 className={cx( 'title' )}>{title}</h4>
-			<h4 className={cx( 'paid-for' )}>Paid for by {`${paid_for_by || 'Unknown'}`}</h4>
+			<h4 className={cx( 'paid-for' )}>Paid for by {paid_for_by ? ( <Link to={`advertiser/${encodeURI( paid_for_by )}`}>{paid_for_by}</Link> )  : 'Unknown'}</h4>
 			{
 				impressions
 					? (

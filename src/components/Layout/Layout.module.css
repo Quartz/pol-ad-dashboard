@@ -26,7 +26,7 @@
 	padding: 0;
 }
 
-.target-item { 
+.target-item, .target-group { 
 	margin: 12px 0;
 }
 

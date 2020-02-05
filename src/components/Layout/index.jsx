@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import { Button, Checkbox, Divider } from 'semantic-ui-react';
 import { withURLSearchParams } from 'utils';
 import { COMMON_TARGETS_GROUPED } from '../constants';
@@ -43,24 +44,26 @@ const Layout = ( {
 	toggleParam,
 } ) => (
 	<div className={cx( 'layout' )}>
-		<div className={cx( 'left-rail' )}>
-			<Button onClick={() => history.push( pathname )}>
-				Clear All Filters
-			</Button>
-			<Divider />
-			<Search />
-			<Divider />
-			<Checkbox
-				label="Only ads without 'Paid For By' disclaimer"
-				checked={search.includes( 'no_payer=true' )}
-				onClick={() => toggleParam( 'no_payer' )}
-			/>
-			<Divider />
-			<Topics />
-			<TargetFilters getParam={getParam} />
-			<Divider />
-			<CommonTargets />
-		</div>
+		<Route path="/search">
+			<div className={cx( 'left-rail' )}>
+				<Button onClick={() => history.push( pathname )}>
+					Clear All Filters
+				</Button>
+				<Divider />
+				<Search />
+				<Divider />
+				<Checkbox
+					label="Only ads without 'Paid For By' disclaimer"
+					checked={search.includes( 'no_payer=true' )}
+					onClick={() => toggleParam( 'no_payer' )}
+				/>
+				<Divider />
+				<Topics />
+				<TargetFilters getParam={getParam} />
+				<Divider />
+				<CommonTargets />
+			</div>
+		</Route>
 		<div className={cx( 'content' )}>
 			{
 				children
