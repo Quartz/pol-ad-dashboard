@@ -11,6 +11,16 @@ const withURLSearchParams = WrappedComponent => {
 			};
 		}
 
+		componentDidUpdate( prevProps ) {
+			const { location: { search } } = this.props;
+			const { location: { search: prevSearch } } = prevProps;
+			if ( search !== prevSearch ) {
+				this.setState( { params: new URLSearchParams( search ) } );
+			}
+		}
+
+		getParam = ( param ) => this.state.params.get( param )
+
 		toggleParam = ( param ) => {
 			const { history, location: { pathname } } = this.props;
 			const { params } = this.state;
@@ -36,6 +46,8 @@ const withURLSearchParams = WrappedComponent => {
 
 		render() {
 			const funcs = {
+				getParam: this.getParam,
+				setParam: this.setParam,
 				toggleParam: this.toggleParam,
 			};
 			return (

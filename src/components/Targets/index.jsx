@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withURLSearchParams } from 'utils';
 import { Button, Divider, Icon } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import styles from './Targets.module.css';
 
 const cx = classnames.bind( styles );
 
-export const TargetFilters = ( { search } ) => {
-	const params = new URLSearchParams( search );
-	const targets = JSON.parse( params.get( 'targeting' ) );
+export const TargetFilters = ( { getParam } ) => {
+	const targets = JSON.parse( getParam( 'targeting' ) );
 	const formattedTargets = [];
 
 	if ( !targets || !targets.length ) {
@@ -61,13 +60,11 @@ const TargetButton = ( { isPresent, target, targetSearch } ) => {
 };
 
 const Targets = ( {
-	history,
-	location,
+	getParam,
+	setParam,
 	targets,
 } ) => {
-	const { search } = location;
-	const params = new URLSearchParams( search );
-	const parsedTargets = JSON.parse( params.get( 'targeting' ) ) || [];
+	const parsedTargets = JSON.parse( getParam( 'targeting' ) ) || [];
 	const formattedParsedTargets = parsedTargets.map( toFormat => ( { target: toFormat[0], segment: toFormat[1] } ) );
 
 	const targetSearch = ( isPresent, type, segment ) => () => {
@@ -79,8 +76,7 @@ const Targets = ( {
 			// otherwise add new target to list and push to history
 			newTargets = parsedTargets.concat( [ [ type, segment ] ] );
 		}
-		params.set( 'targeting', JSON.stringify( newTargets ) );
-		history.push( { pathname: '/search', search: params.toString() } );
+		setParam( 'targeting', JSON.stringify( newTargets ) );
 	};
 
 	return (
@@ -97,6 +93,6 @@ const Targets = ( {
 	);
 };
 
-const WrappedTargets = withRouter( Targets );
+const WrappedTargets = withURLSearchParams( Targets );
 
 export default WrappedTargets;

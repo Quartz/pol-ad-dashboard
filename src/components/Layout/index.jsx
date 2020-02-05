@@ -18,7 +18,13 @@ const CommonTargets = () => (
 	</div>
 );
 
-const Layout = ( { history, location: { search, pathname }, toggleParam, children } ) => (
+const Layout = ( {
+	children,
+	getParam,
+	history,
+	location: { search, pathname },
+	toggleParam,
+} ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
 			<Button onClick={() => history.push( pathname )}>
@@ -34,7 +40,7 @@ const Layout = ( { history, location: { search, pathname }, toggleParam, childre
 			/>
 			<Divider />
 			<Topics />
-			<TargetFilters search={search} />
+			<TargetFilters getParam={getParam} />
 			<Divider />
 			<CommonTargets />
 		</div>

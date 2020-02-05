@@ -1,37 +1,22 @@
 import React from 'react';
 import { Dropdown } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
+import { withURLSearchParams } from 'utils';
 import { TOPICS } from '../constants';
 
 const topicOptions = () => TOPICS.map( topic => ( { key: topic, value: topic, text: topic } ) );
 
-const TopicsFilter = ( { history, location: { search } } ) => {
+const TopicsFilter = ( { setParam } ) => (
+	<div className="container">
+		<h4>Topic:</h4>
+		<Dropdown
+			clearable
+			options={topicOptions()}
+			onChange={( _, data ) => setParam( 'topic', data.value.toLowerCase() )}
+			placeholder="Topic"
+			search
+			selection
+		/>
+	</div>
+);
 
-	const setTopic = ( _, data ) => {
-		const { value } = data;
-		const params = new URLSearchParams( search );
-		if ( value !== '' ) {
-			params.set( 'topic', value.toLowerCase() );
-			params.delete( 'page' );
-		} else {
-			params.delete( 'topic' );
-		}
-		history.push( { pathname: '/search', search: params.toString() } );
-	};
-
-	return (
-		<div className="container">
-			<h4>Topic:</h4>
-			<Dropdown
-				clearable
-				options={topicOptions()}
-				onChange={setTopic}
-				placeholder="Topic"
-				search
-				selection
-			/>
-		</div>
-	);
-};
-
-export default withRouter( TopicsFilter );
+export default withURLSearchParams( TopicsFilter );
