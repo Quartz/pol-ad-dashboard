@@ -7,8 +7,17 @@
 	}
 }
 
-.scaledImageFitWidth {
+.scaledImageFitWidth, .img {
 	width: 100%;
+}
+
+.uiList {
+	list-style: none;
+	padding: 0;
+}
+
+.pagination .item:focus {
+	outline: none;
 }
 
 // FB SCSS:
