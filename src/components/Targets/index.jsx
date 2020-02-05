@@ -76,7 +76,7 @@ const Targets = ( {
 			// otherwise add new target to list and push to history
 			newTargets = parsedTargets.concat( [ [ type, segment ] ] );
 		}
-		setParam( 'targeting', JSON.stringify( newTargets ) );
+		setParam( 'targeting', newTargets.length ? JSON.stringify( newTargets ) : '' );
 	};
 
 	return (

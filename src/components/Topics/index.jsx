@@ -15,6 +15,7 @@ const TopicsFilter = ( { setParam } ) => (
 			placeholder="Topic"
 			search
 			selection
+			fluid
 		/>
 	</div>
 );

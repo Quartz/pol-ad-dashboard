@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Loader, Pagination } from 'semantic-ui-react';
-import { withRouter, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { withURLSearchParams } from 'utils';
 import classnames from 'classnames/bind';
 import styles from './AdSearch.module.css';
 import AdWrapper from 'components/AdWrapper';
@@ -21,12 +22,12 @@ const useQuery = () => {
 const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 	<div className={cx( 'meta-container' )}>
 		<h4 className={cx( 'meta-title' )}>Total Ads: {totalCount.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )}</h4>
-		<Pagination totalPages={pages} defaultActivePage={page} onPageChange={setPage} />
+		<Pagination totalPages={pages} activePage={page} onPageChange={setPage} />
 	</div>
 );
 
-const AdSearch = ( { history, location, location: { search } } ) => {
-	const [ adData, setAdData ] = useState( [] );
+const AdSearch = ( { location: { search }, setParam } ) => {
+	const [ adData, setAdData ] = useState( { n_pages: 0, page: '1', total_ads: 0, ads: [] } );
 	const [ loading, setLoading ] = useState( true );
 	const query = useQuery();
 
@@ -40,21 +41,9 @@ const AdSearch = ( { history, location, location: { search } } ) => {
 		getLatestAds();
 	}, [ search ] );
 
-	console.log( adData );
+	// console.log( adData );
 
-	if ( loading ) {
-		return (
-			<div className={cx( 'container' )}>
-				<Loader active={loading} />
-			</div>
-		);
-	}
-
-	const setPage = ( _, data ) => {
-		const params = new URLSearchParams( search );
-		params.set( 'page', data.activePage );
-		history.push( { pathname: location.pathname, search: params.toString() } );
-	};
+	const setPage = ( _, data ) => setParam( 'page', data.activePage );
 
 	return (
 		<Fragment>
@@ -65,10 +54,19 @@ const AdSearch = ( { history, location, location: { search } } ) => {
 				totalCount={adData.total_ads}
 			/>
 			<div className={cx( 'container' )}>
-				<AdWrapper adData={adData.ads} />
+				{
+					loading
+						? (
+							<div className={cx( 'container' )}>
+								<Loader active={loading} />
+							</div>
+						) : (
+							<AdWrapper adData={adData.ads} />
+						)
+				}
 			</div>
 			{
-				adData.ads.length > 10
+				adData.ads.length > 10 && !loading
 					? (
 						<AdMeta
 							pages={adData.n_pages}
@@ -82,4 +80,4 @@ const AdSearch = ( { history, location, location: { search } } ) => {
 	);
 };
 
-export default withRouter( AdSearch );
+export default withURLSearchParams( AdSearch );

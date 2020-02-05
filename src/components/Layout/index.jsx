@@ -15,10 +15,10 @@ const CommonTargets = () => (
 		<h4 className={cx( 'title' )}>Common Targets:</h4>
 		<ul className={cx( 'target-list' )}>
 			{
-				Object.keys( COMMON_TARGETS_GROUPED ).sort().map( target => {
+				Object.keys( COMMON_TARGETS_GROUPED ).sort().map( ( target, idx ) => {
 					const vals = COMMON_TARGETS_GROUPED[target].map( val => ( { target, segment: val } ) );
 					return (
-						<li className={cx( 'target-item' )}>
+						<li className={cx( 'target-item' )} key={idx}>
 							<details className={cx( 'target-details' )}>
 								<summary>
 									{target}

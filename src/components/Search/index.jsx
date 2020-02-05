@@ -1,33 +1,23 @@
 import React, { useState, Fragment } from 'react';
 import { Form, Input } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
+import { withURLSearchParams } from 'utils';
 
-const Search = ( { history, location: { search } } ) => {
+const Search = ( { setParam } ) => {
 	const [ searchTerm, setSearchTerm ] = useState( '' );
-
-	const onSubmit = () => {
-		const params = new URLSearchParams( search );
-		if ( searchTerm === '' ) {
-			params.delete( 'search' );
-			params.delete( 'page' );
-		} else {
-			params.set( 'search', searchTerm );
-		}
-		history.push( { pathname: '/search', search: params.toString() } );
-	};
 
 	return (
 		<Fragment>
-			<Form onSubmit={onSubmit}>
+			<Form onSubmit={() => setParam( 'search', searchTerm )}>
 				<Input
 					icon="search"
 					placeholder="Search"
 					onChange={( e ) => setSearchTerm( e.target.value )}
 					value={searchTerm}
+					fluid
 				/>
 			</Form>
 		</Fragment>
 	);
 };
 
-export default withRouter( Search );
+export default withURLSearchParams( Search );
