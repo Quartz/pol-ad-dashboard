@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { withURLSearchParams } from 'utils';
-import { Button, Divider, Icon } from 'semantic-ui-react';
+import { Button, Divider, Icon, Label } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import styles from './Targets.module.css';
 
@@ -31,7 +31,7 @@ export const TargetFilters = ( { getParam } ) => {
 };
 
 const TargetButton = ( { isPresent, target, targetSearch } ) => {
-	const { target: type, segment } = target;
+	const { target: type, segment, count } = target;
 	return (
 		<div className={cx( 'button-group' )}>
 			<Button.Group>
@@ -43,8 +43,13 @@ const TargetButton = ( { isPresent, target, targetSearch } ) => {
 							</Button>
 						) : null
 				}
-				<Button onClick={targetSearch( isPresent, type )}>
-					{target.target}
+				<Button onClick={targetSearch( isPresent, type )} as="a" labelPosition="right">
+					{
+						count && <Label pointing="right">{count}</Label>
+					}
+					<Button>
+						{target.target}
+					</Button>
 				</Button>
 				{
 					target.segment

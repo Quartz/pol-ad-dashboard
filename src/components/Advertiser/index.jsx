@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { Progress } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import AdSearch from 'components/AdSearch';
+import Targets from 'components/Targets';
 import API from 'api/';
 import styles from './Advertiser.module.css';
 
@@ -24,7 +25,6 @@ const Advertiser = () => {
 	useEffect( () => {
 		const getAdvertiserData = async () => {
 			const data = await API.getAdvertiserByName( advertiser );
-			console.log( data );
 			setAdvertiserData( data );
 		};
 		getAdvertiserData();
@@ -48,7 +48,7 @@ const Advertiser = () => {
 		payers,
 		precise_spend,
 		topics,
-		targetings
+		targetings,
 	} = advertiserData;
 
 	return (
@@ -56,7 +56,7 @@ const Advertiser = () => {
 			<div className={cx( 'advertiser-container' )}>
 				<h2>{advertiser}</h2>
 				<div className={cx( 'adv-section', 'spend' )}>
-					<div>{precise_spend ? `$${precise_spend.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,')} spent` : 'Unknown spend'}</div>
+					<div>{precise_spend ? `$${precise_spend.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} spent` : 'Unknown spend'}</div>
 					<div>{ads || 0} ads</div>
 					<div>{fbpac_ads || 0} FBPAC ads</div>
 				</div>
@@ -81,10 +81,20 @@ const Advertiser = () => {
 					<h4>Payers</h4>
 					<p>
 						{
-							payers && payers.map( payer => <Link className={cx( 'link' )} to={`/search?search=${encodeURI( payer.name )}`}>{payer.name}</Link> )
+							payers && payers.map( payer => <Link key={payer.name} className={cx( 'link' )} to={`/search?search=${encodeURI( payer.name )}`}>{payer.name}</Link> )
 						}
 					</p>
 				</div>
+				{
+					targetings && targetings.individual_methods && targetings.individual_methods.length > 0 && (
+						<details className={cx( 'adv-section', 'targeting' )}>
+							<summary className={cx( 'summary' )}>
+								Count of Advertiser Targets
+							</summary>
+							<Targets targets={targetings.individual_methods} />
+						</details>
+					)
+				}
 			</div>
 			<AdSearch />
 		</div>

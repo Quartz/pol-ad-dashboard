@@ -35,14 +35,13 @@ const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 );
 
 const AdSearch = ( { location: { pathname, search }, setParam } ) => {
-	const [ adData, setAdData ] = useState( { n_pages: 0, page: '1', total_ads: 0, ads: [] } );
+	const [ adData, setAdData ] = useState( { n_pages: 0, page: 1, total_ads: 0, ads: [] } );
 	const [ loading, setLoading ] = useState( true );
 	const query = useQuery( pathname );
 
 	useEffect( () => {
 		const getLatestAds = async () => {
 			setLoading( true );
-			console.log( query );
 			const data = await API.search( query );
 			setAdData( data );
 			setLoading( false );

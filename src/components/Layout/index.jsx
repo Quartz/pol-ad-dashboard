@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Button, Checkbox, Divider } from 'semantic-ui-react';
 import { withURLSearchParams } from 'utils';
 import { COMMON_TARGETS_GROUPED } from '../constants';
@@ -44,10 +44,16 @@ const Layout = ( {
 } ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
-			<Button onClick={() => history.push( pathname )}>
-				Clear All Filters
-			</Button>
-			<Divider />
+			{
+				pathname === '/search' && (
+					<Fragment>
+						<Button onClick={() => history.push( pathname )}>
+							Clear All Filters
+						</Button>
+						<Divider />
+					</Fragment>
+				)
+			}
 			<Search />
 			<Divider />
 			<Checkbox

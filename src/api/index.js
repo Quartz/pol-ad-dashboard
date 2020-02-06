@@ -1,4 +1,4 @@
-const DASHBOARD_URL = 'http://dashboard.qz.ai';
+const DASHBOARD_URL = 'https://dashboard-backend.qz.ai';
 
 class API {
 	constructor () {

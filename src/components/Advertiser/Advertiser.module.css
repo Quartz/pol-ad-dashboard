@@ -30,3 +30,21 @@
 	float: none;
 	margin-bottom: 12px;
 }
+
+.targeting {
+	width: 50%;
+}
+
+.summary {
+	font-size: 15px;
+	font-weight: bold;
+	margin-top: 12px;
+}
+
+.summary:hover {
+	cursor: pointer;
+}
+
+.summary:focus {
+	outline: none;
+}
