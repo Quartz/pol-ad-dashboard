@@ -4,4 +4,29 @@
 	padding: 12px;
 	margin-bottom: 12px;
 	border-radius: 4px;
+	overflow: auto;
+}
+
+.link {
+	margin-right: 4px;
+}
+
+.adv-section {
+	float: left;
+	margin-right: 20px;
+}
+
+.topics {
+	width: 40%;
+}
+
+.topic-label {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2px;
+}
+
+.spend {
+	float: none;
+	margin-bottom: 12px;
 }

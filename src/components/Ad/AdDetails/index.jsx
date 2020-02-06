@@ -29,7 +29,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 			className={cx( 'details-container' )}
 		>
 			<h4 className={cx( 'title' )}>{title}</h4>
-			<h4 className={cx( 'title' )}>Advertiser: <Link to={`advertiser/${encodeURI( advertiser )}`}>{advertiser}</Link></h4>
+			<h4 className={cx( 'title' )}>Advertiser: <Link to={`/advertiser/${encodeURI( advertiser )}`}>{advertiser}</Link></h4>
 			<h4 className={cx( 'paid-for' )}>Paid for by {paid_for_by || 'Unknown'}</h4>
 			{
 				impressions

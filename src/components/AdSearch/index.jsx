@@ -48,7 +48,7 @@ const AdSearch = ( { location: { pathname, search }, setParam } ) => {
 			setLoading( false );
 		};
 		getLatestAds();
-	}, [ search ] );
+	}, [ search, pathname ] );
 
 	console.log( adData );
 

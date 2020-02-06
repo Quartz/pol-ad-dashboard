@@ -25,6 +25,10 @@ class API {
 		return this.get( `${this.baseURL}/ads/topic=${topic}` );
 	}
 
+	getAdvertiserByName( name ) {
+		return this.get( `${this.baseURL}/pages_by_name/${encodeURI( name )}.json` );
+	}
+
 	search( params = {} ) {
 		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param].join( ',' )}` ).join( '&' );
 		return this.get( `${this.baseURL}/ads/search.json?${parsedParams}` );
