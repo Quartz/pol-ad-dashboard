@@ -81,7 +81,17 @@ const Advertiser = () => {
 					<h4>Payers</h4>
 					<p>
 						{
-							payers && payers.map( payer => <Link key={payer.name} className={cx( 'link' )} to={`/search?search=${encodeURI( payer.name )}`}>{payer.name}</Link> )
+							payers &&
+							payers
+								.map( payer => <Link key={payer.name} className={cx( 'link' )} to={`/search?search=${encodeURI( payer.name )}`}>{payer.name}</Link> )
+								.reduce( ( accum, payer, idx ) => {
+									// add commas
+									const next = [ payer, ( <span className={cx( 'comma' )}>,</span> ) ];
+									if ( idx === payers.length - 1 ) {
+										next.pop();
+									}
+									return accum.concat( next );
+								}, [] )
 						}
 					</p>
 				</div>

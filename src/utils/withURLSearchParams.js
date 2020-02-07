@@ -71,8 +71,8 @@ const withURLSearchParams = WrappedComponent => {
 
 		render() {
 			const funcs = {
-				getFormattedParams: this.getFormattedParams,
 				getParam: this.getParam,
+				getFormattedParams: this.getFormattedParams,
 				setParam: this.setParam,
 				toggleParam: this.toggleParam,
 			};

@@ -36,13 +36,20 @@ const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 
 const AdSearch = ( { location: { pathname, search }, setParam } ) => {
 	const [ adData, setAdData ] = useState( { n_pages: 0, page: 1, total_ads: 0, ads: [] } );
+	const [ error, setError ] = useState( '' );
 	const [ loading, setLoading ] = useState( true );
 	const query = useQuery( pathname );
 
 	useEffect( () => {
 		const getLatestAds = async () => {
+			setError( '' );
 			setLoading( true );
 			const data = await API.search( query );
+			if ( data.error ) {
+				setError( data.error );
+				setLoading( false );
+				return;
+			}
 			setAdData( data );
 			setLoading( false );
 		};
@@ -52,6 +59,15 @@ const AdSearch = ( { location: { pathname, search }, setParam } ) => {
 	console.log( adData );
 
 	const setPage = ( _, data ) => setParam( 'page', data.activePage );
+
+	if ( error ) {
+		return (
+			<Fragment>
+				<h2>Sorry, something went wrong.</h2>
+				<p>{error}</p>
+			</Fragment>
+		);
+	}
 
 	return (
 		<Fragment>

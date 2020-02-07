@@ -11,6 +11,7 @@ class API {
 			headers: {
 				// TODO - plug in actual auth
 				Authorization: `Basic ${btoa( 'jeremy@qz.com:Lunch?Lunch?Lunch?' )}`,
+				'Content-Type': 'application/json',
 			},
 		} );
 		const data = res.json();
@@ -21,17 +22,23 @@ class API {
 		return this.get( `${this.baseURL}/ads_by_text/${adId}` );
 	}
 
-	searchAdsByTopic( topic ) {
-		return this.get( `${this.baseURL}/ads/topic=${topic}` );
+	getAdvertiserByName( name ) {
+		return this.get( `${this.baseURL}/pages_by_name/${encodeURIComponent( name )}.json` );
 	}
 
-	getAdvertiserByName( name ) {
-		return this.get( `${this.baseURL}/pages_by_name/${encodeURI( name )}.json` );
+	getTopics() {
+		return this.get( `${this.baseURL}/topics.json` );
 	}
 
 	search( params = {} ) {
+		const { poliprobMin = 70, poliprobMax = 100 } = params;
 		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param].join( ',' )}` ).join( '&' );
+		// &poliprob=[${poliprobMin},${poliprobMax}]
 		return this.get( `${this.baseURL}/ads/search.json?${parsedParams}` );
+	}
+
+	searchAdsByTopic( topic ) {
+		return this.get( `${this.baseURL}/ads/topic=${topic}` );
 	}
 };
 

@@ -1,9 +1,15 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { Form, Input } from 'semantic-ui-react';
 import { withURLSearchParams } from 'utils';
 
-const Search = ( { setParam, getParam } ) => {
+const Search = ( { location: { search }, setParam, getParam } ) => {
 	const [ searchTerm, setSearchTerm ] = useState( getParam( 'search' ) || '' );
+
+	useEffect( () => {
+		if ( !search ) {
+			setSearchTerm( '' );
+		}
+	}, [ search ] );
 
 	return (
 		<Fragment>
