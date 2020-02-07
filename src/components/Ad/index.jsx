@@ -28,7 +28,7 @@ const Ad = ( { ad, creativeAd, text } ) => {
 		<div className={cx( 'container' )}>
 			<CreativeAd html={html} />
 			{
-				targetings && targetings[0]
+				targetings && targetings[0] && targetings[0][0] === '<' // cleanup since sometimes an ad target isn't html
 					? (
 						<div dangerouslySetInnerHTML={{ __html: targetings[0] }} />
 					) : null

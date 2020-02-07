@@ -76,11 +76,12 @@ const Targets = ( {
 		let newTargets;
 		if ( isPresent ) {
 			// remove if we already have this target
-			newTargets = parsedTargets.filter( parsedTarget => parsedTarget[0] !== type && parsedTarget[1] !== segment );
+			newTargets = parsedTargets.filter( parsedTarget => parsedTarget[1] ? ( parsedTarget[0] !== type || parsedTarget[1] !== segment ) : parsedTarget[0] !== type );
 		} else {
 			// otherwise add new target to list and push to history
 			newTargets = parsedTargets.concat( [ [ type, segment ] ] );
 		}
+		console.log( 'newTargets', newTargets );
 		setParam( 'targeting', newTargets.length ? JSON.stringify( newTargets ) : '' );
 	};
 
