@@ -26,7 +26,7 @@ const Login = ( { handleChange, loading, onSubmit } ) => {
 				<Form.Button>Submit</Form.Button>
 			</Form>
 		</div>
-	)
-}
+	);
+};
 
 export default Login;

@@ -16,7 +16,7 @@ class API extends React.Component {
 		}
 		this.state = {
 			cred,
-			username: '',
+			user: '',
 			pass: '',
 			loading: false,
 			loggedIn: !!existingUser,
@@ -28,7 +28,7 @@ class API extends React.Component {
 		const cred = btoa( `${user}:${pass}` );
 		await this.setState( { cred, loading: true } );
 		const res = await this.getTopics();
-		if ( !res.error || ( res.error && !res.error === 'You need to sign in or sign up before continuing.' ) ) {
+		if ( !res.error || ( res.error && !res.error === 'Invalid Email or password.' ) ) {
 			this.setState( { loggedIn: true, loading: false } );
 			document.cookie = `cred=${cred}`;
 		} else {
@@ -38,7 +38,6 @@ class API extends React.Component {
 
 	async get( url ) {
 		const { cred } = this.state;
-		console.log( 'cred', cred );
 		const res = await fetch( url, {
 			method: 'GET',
 			headers: {
@@ -57,7 +56,7 @@ class API extends React.Component {
 
 	getTopics = () => this.get( `${this.baseURL}/topics.json` );
 
-	handleChange = ( key ) => () => ( _, { value } ) => this.setState( { [key]: value } );
+	handleChange = ( key ) => ( _, { value } ) => this.setState( { [key]: value } );
 
 	search = ( params = {} ) => {
 		const { poliprobMin = 70, poliprobMax = 100 } = params;
