@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Form } from 'semantic-ui-react';
+import Login from 'components/Login';
 
 const DASHBOARD_URL = 'https://dashboard-backend.qz.ai';
 
@@ -57,6 +57,8 @@ class API extends React.Component {
 
 	getTopics = () => this.get( `${this.baseURL}/topics.json` );
 
+	handleChange = ( key ) => () => ( _, { value } ) => this.setState( { [key]: value } );
+
 	search = ( params = {} ) => {
 		const { poliprobMin = 70, poliprobMax = 100 } = params;
 		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param].join( ',' )}` ).join( '&' );
@@ -72,28 +74,13 @@ class API extends React.Component {
 			search: this.search,
 		};
 
-		if ( loading ) {
-			return (
-				<Loader active={loading} />
-			);
-		}
-
 		if ( !loggedIn ) {
 			return (
-				<div>
-					Please log in.
-					<Form onSubmit={this.setLogin}>
-						<Form.Field>
-							<label>Username</label>
-							<Form.Input onChange={( _, { value } ) => this.setState( { user: value } )} />
-						</Form.Field>
-						<Form.Field>
-							<label>Password</label>
-							<Form.Input type="password" onChange={( _, { value } ) => this.setState( { pass: value } )} />
-						</Form.Field>
-						<Form.Button>Submit</Form.Button>
-					</Form>
-				</div>
+				<Login
+					handleChange={this.handleChange}
+					loading={loading}
+					onSubmit={this.setLogin}
+				/>
 			);
 		}
 
