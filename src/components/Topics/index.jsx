@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Dropdown } from 'semantic-ui-react';
-import { withURLSearchParams } from 'utils';
-import API from 'api';
+import { compose, withURLSearchParams } from 'utils';
+import { withAPI } from 'api';
 
 const topicOptions = ( topics ) => topics
 	.map( ( [ topic, topicId ] ) => ( { key: topic, value: topicId, text: topic } ) )
 	.sort( ( { key: keyA }, { key: keyB } ) => keyA > keyB ? 1 : -1 );
 
-const TopicsFilter = ( { setParam } ) => {
+const TopicsFilter = ( { getTopics: getTopicsFromAPI, setParam } ) => {
 	const [ topics, setTopics ] = useState( [] );
 
 	useEffect( () => {
 		const getTopics = async () => {
-			const { topics } = await API.getTopics();
+			const { topics } = await getTopicsFromAPI();
 			const topicValues = topicOptions( topics );
 			setTopics( topicValues );
 		};
@@ -35,4 +35,4 @@ const TopicsFilter = ( { setParam } ) => {
 	);
 }
 
-export default withURLSearchParams( TopicsFilter );
+export default compose( withAPI, withURLSearchParams )( TopicsFilter );

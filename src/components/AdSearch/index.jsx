@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Loader, Pagination } from 'semantic-ui-react';
 import { useLocation, useParams } from 'react-router-dom';
-import { withURLSearchParams } from 'utils';
+import { compose, withURLSearchParams } from 'utils';
 import classnames from 'classnames/bind';
 import styles from './AdSearch.module.css';
 import AdWrapper from 'components/AdWrapper';
-import API from 'api';
+import { withAPI } from 'api';
 
 const cx = classnames.bind( styles );
 
@@ -34,7 +34,7 @@ const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 	</div>
 );
 
-const AdSearch = ( { location: { pathname, search }, setParam } ) => {
+const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam } ) => {
 	const [ adData, setAdData ] = useState( { n_pages: 0, page: 1, total_ads: 0, ads: [] } );
 	const [ error, setError ] = useState( '' );
 	const [ loading, setLoading ] = useState( true );
@@ -44,7 +44,7 @@ const AdSearch = ( { location: { pathname, search }, setParam } ) => {
 		const getLatestAds = async () => {
 			setError( '' );
 			setLoading( true );
-			const data = await API.search( query );
+			const data = await apiSearch( query );
 			if ( data.error ) {
 				setError( data.error );
 				setLoading( false );
@@ -104,4 +104,4 @@ const AdSearch = ( { location: { pathname, search }, setParam } ) => {
 	);
 };
 
-export default withURLSearchParams( AdSearch );
+export default compose( withAPI, withURLSearchParams )( AdSearch );

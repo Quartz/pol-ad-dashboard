@@ -4,7 +4,7 @@ import { Progress } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import AdSearch from 'components/AdSearch';
 import Targets from 'components/Targets';
-import API from 'api';
+import { withAPI } from 'api';
 import styles from './Advertiser.module.css';
 
 const cx = classnames.bind( styles );
@@ -18,13 +18,13 @@ const findColor = ( idx ) => {
 	return findColor( idx - COLORS.length );
 };
 
-const Advertiser = () => {
+const Advertiser = ( { getAdvertiserByName } ) => {
 	const [ advertiserData, setAdvertiserData ] = useState( null );
 	const { advertiser } = useParams();
 
 	useEffect( () => {
 		const getAdvertiserData = async () => {
-			const data = await API.getAdvertiserByName( advertiser );
+			const data = await getAdvertiserByName( advertiser );
 			setAdvertiserData( data );
 		};
 		getAdvertiserData();
@@ -111,4 +111,4 @@ const Advertiser = () => {
 	);
 };
 
-export default Advertiser;
+export default withAPI( Advertiser );
