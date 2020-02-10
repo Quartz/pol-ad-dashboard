@@ -81,7 +81,6 @@ const Targets = ( {
 			// otherwise add new target to list and push to history
 			newTargets = parsedTargets.concat( [ [ type, segment ] ] );
 		}
-		console.log( 'newTargets', newTargets );
 		setParam( 'targeting', newTargets.length ? JSON.stringify( newTargets ) : '' );
 	};
 
