@@ -5,7 +5,7 @@ import { withURLSearchParams } from 'utils';
 import classnames from 'classnames/bind';
 import styles from './AdSearch.module.css';
 import AdWrapper from 'components/AdWrapper';
-import API from 'api/';
+import API from 'api';
 
 const cx = classnames.bind( styles );
 

@@ -33,8 +33,7 @@ class API {
 	search( params = {} ) {
 		const { poliprobMin = 70, poliprobMax = 100 } = params;
 		const parsedParams = Object.keys( params ).map( param => `${param}=${params[param].join( ',' )}` ).join( '&' );
-		// &poliprob=[${poliprobMin},${poliprobMax}]
-		return this.get( `${this.baseURL}/ads/search.json?${parsedParams}` );
+		return this.get( `${this.baseURL}/ads/search.json?${parsedParams}&poliprob=[${poliprobMin},${poliprobMax}]` );
 	}
 
 	searchAdsByTopic( topic ) {

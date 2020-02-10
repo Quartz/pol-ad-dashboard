@@ -4,7 +4,7 @@ import { Progress } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import AdSearch from 'components/AdSearch';
 import Targets from 'components/Targets';
-import API from 'api/';
+import API from 'api';
 import styles from './Advertiser.module.css';
 
 const cx = classnames.bind( styles );
