@@ -1,7 +1,3 @@
-.container {
-	columns: 510px auto;
-}
-
 .meta-container {
 	display: flex;
 	justify-content: space-between;

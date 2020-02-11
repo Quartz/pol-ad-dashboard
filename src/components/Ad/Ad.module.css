@@ -1,5 +1,6 @@
 .container {
 	display: inline-block;
-	margin: 10px 0;
+	vertical-align: top;
+	margin: 10px;
 	box-shadow: -3px 6px 14px 0px rgba(0,0,0,0.1)
 }
