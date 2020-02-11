@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Button, Modal } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
@@ -67,6 +68,11 @@ const AdDetails = ( { ad, creativeAd } ) => {
 			</Modal>
 		</div>
 	);
+};
+
+AdDetails.propTypes = {
+	ad: PropTypes.object,
+	creativeAd: PropTypes.object,
 };
 
 export default AdDetails;

@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { Loader, Pagination } from 'semantic-ui-react';
 import { useLocation, useParams } from 'react-router-dom';
 import { compose, withURLSearchParams } from 'utils';
@@ -34,6 +35,13 @@ const AdMeta = ( { totalCount, pages, page, setPage } ) => (
 	</div>
 );
 
+AdMeta.propTypes = {
+	page: PropTypes.oneOfType( [ PropTypes.string, PropTypes.number ] ),
+	pages: PropTypes.number.isRequired,
+	setPage: PropTypes.func.isRequired,
+	totalCount: PropTypes.number.isRequired,
+};
+
 const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam } ) => {
 	const [ adData, setAdData ] = useState( { n_pages: 0, page: 1, total_ads: 0, ads: [] } );
 	const [ error, setError ] = useState( '' );
@@ -54,9 +62,7 @@ const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam
 			setLoading( false );
 		};
 		getLatestAds();
-	}, [ search, pathname ] );
-
-	console.log( adData );
+	}, [ apiSearch, pathname, search ] );
 
 	const setPage = ( _, data ) => setParam( 'page', data.activePage );
 
@@ -102,6 +108,15 @@ const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam
 			}
 		</Fragment>
 	);
+};
+
+AdSearch.propTypes = {
+	location: PropTypes.shape( {
+		pathname: PropTypes.string.isRequired,
+		search: PropTypes.string,
+	} ),
+	search: PropTypes.func.isRequired,
+	setParam: PropTypes.func.isRequired,
 };
 
 export default compose( withAPI, withURLSearchParams )( AdSearch );

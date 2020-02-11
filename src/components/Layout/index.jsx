@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Button, Checkbox, Divider } from 'semantic-ui-react';
 import { withURLSearchParams } from 'utils';
 import { COMMON_TARGETS_GROUPED } from '../constants';
@@ -74,5 +75,16 @@ const Layout = ( {
 		</div>
 	</div>
 );
+
+Layout.propTypes = {
+	children: PropTypes.node,
+	getParam: PropTypes.func.isRequired,
+	history: PropTypes.object.isRequired,
+	location: PropTypes.shape( {
+		search: PropTypes.string,
+		pathname: PropTypes.string.isRequired,
+	} ),
+	toggleParam: PropTypes.func.isRequired,
+}
 
 export default withURLSearchParams( Layout );

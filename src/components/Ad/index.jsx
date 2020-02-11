@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AdDetails, { CreativeAd } from './AdDetails';
 import classnames from 'classnames/bind';
 import Targets from '../Targets';
@@ -42,6 +43,12 @@ const Ad = ( { ad, creativeAd, text } ) => {
 			<AdDetails ad={ad} creativeAd={creativeAd} text={text} />
 		</div>
 	);
+};
+
+Ad.propTypes = {
+	ad: PropTypes.object,
+	creativeAd: PropTypes.object,
+	text: PropTypes.string,
 };
 
 export default Ad;

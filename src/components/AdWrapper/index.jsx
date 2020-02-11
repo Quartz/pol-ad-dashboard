@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import Ad from 'components/Ad';
 
 // use this for conditional logic to return consistent Ad component despite different possible types of ads as props
@@ -17,5 +18,13 @@ const AdWrapper = ( { adData } ) => adData.map( ( ad, idx ) => {
 		<Ad ad={ad} creativeAd={creativeAd} text={text} />
 	);
 } );
+
+AdWrapper.defaultProps = {
+	adData: [],
+};
+
+AdWrapper.propTypes = {
+	adData: PropTypes.array,
+};
 
 export default AdWrapper;

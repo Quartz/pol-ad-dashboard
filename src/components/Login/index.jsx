@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames/bind';
 import { Form, Loader } from 'semantic-ui-react';
 import styles from './Login.module.css';
@@ -27,6 +28,12 @@ const Login = ( { handleChange, loading, onSubmit } ) => {
 			</Form>
 		</div>
 	);
+};
+
+Login.propTypes = {
+	handleChange: PropTypes.func.isRequired,
+	loading: PropTypes.bool.isRequired,
+	onSubmit: PropTypes.func.isRequired,
 };
 
 export default Login;

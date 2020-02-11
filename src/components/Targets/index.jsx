@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { withURLSearchParams } from 'utils';
 import { Button, Divider, Icon, Label } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
@@ -28,6 +29,10 @@ export const TargetFilters = ( { getParam } ) => {
 			</div>
 		</Fragment>
 	);
+};
+
+TargetFilters.propTypes = {
+	getParam: PropTypes.func.isRequired,
 };
 
 const TargetButton = ( { isPresent, target, targetSearch } ) => {
@@ -96,6 +101,12 @@ const Targets = ( {
 			}
 		</div>
 	);
+};
+
+Targets.propTypes = {
+	getParam: PropTypes.func.isRequired,
+	setParam: PropTypes.func.isRequired,
+	targets: PropTypes.array.isRequired,
 };
 
 const WrappedTargets = withURLSearchParams( Targets );

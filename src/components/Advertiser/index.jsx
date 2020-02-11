@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link, useParams } from 'react-router-dom';
 import { Progress } from 'semantic-ui-react';
 import classnames from 'classnames/bind';
 import AdSearch from 'components/AdSearch';
 import Targets from 'components/Targets';
-import { withAPI } from 'api';
 import styles from './Advertiser.module.css';
+import { withAPI } from 'api';
 
 const cx = classnames.bind( styles );
 
@@ -28,9 +29,7 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 			setAdvertiserData( data );
 		};
 		getAdvertiserData();
-	}, [ advertiser ] );
-
-	console.log( 'advertiserData', advertiserData );
+	}, [ advertiser, getAdvertiserByName ] );
 
 	if ( !advertiserData ) {
 		return (
@@ -109,6 +108,10 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 			<AdSearch />
 		</div>
 	);
+};
+
+Advertiser.propTypes = {
+	getAdvertiserByName: PropTypes.func.isRequired,
 };
 
 export default withAPI( Advertiser );

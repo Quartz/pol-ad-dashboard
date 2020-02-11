@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Input } from 'semantic-ui-react';
 import { withURLSearchParams } from 'utils';
 
@@ -24,6 +25,14 @@ const Search = ( { location: { search }, setParam, getParam } ) => {
 			</Form>
 		</Fragment>
 	);
+};
+
+Search.propTypes = {
+	getParam: PropTypes.func.isRequired,
+	location: PropTypes.shape( {
+		search: PropTypes.string,
+	} ),
+	setParam: PropTypes.func.isRequired,
 };
 
 export default withURLSearchParams( Search );

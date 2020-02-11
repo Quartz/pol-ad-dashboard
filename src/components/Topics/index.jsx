@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 import { compose, withURLSearchParams } from 'utils';
 import { withAPI } from 'api';
@@ -17,7 +18,7 @@ const TopicsFilter = ( { getTopics: getTopicsFromAPI, setParam } ) => {
 			setTopics( topicValues );
 		};
 		getTopics();
-	}, [] );
+	}, [ getTopicsFromAPI ] );
 
 	return (
 		<div className="container">
@@ -33,6 +34,11 @@ const TopicsFilter = ( { getTopics: getTopicsFromAPI, setParam } ) => {
 			/>
 		</div>
 	);
-}
+};
+
+TopicsFilter.propTypes = {
+	getTopics: PropTypes.func.isRequired,
+	setParam: PropTypes.func.isRequired,
+};
 
 export default compose( withAPI, withURLSearchParams )( TopicsFilter );
