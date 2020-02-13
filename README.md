@@ -8,6 +8,17 @@ The dashboard is a React-based client-side app designed to facilitate access to 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Running and deploying the app.
+
+Dev: Install dependencies with `npm install` and run with `npm start`.
+
+Deploy: Run `npm build`. This will output all the files required for deployment in the `/build` folder. Delete the contents of the s3 bucket `pol-ad-dashboard` and copy the contents of the `/build` folder to the s3 bucket.
+
+## App overview
+
+The Political Ad Dashboard runs fundamentally off the URL route & params; it searches and filters in response to changes to params and should search correctly when linking urls with full params. As the route & params change, `react-router-dom`'s `BrowserRouter` listens to and broadcasts changes to the path across the app. Broadcasted changes are then parsed within either the `AdSearch` or `Advertiser` components, which then triggers a search.
+
+In order to change URL params, the most efficient way is to wrap a component in the `withURLParams` higher-order component and use the `setParam`/`toggleParam` methods.
 
 # Create React App Documentation
 
