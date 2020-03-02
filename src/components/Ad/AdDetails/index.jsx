@@ -20,6 +20,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 		title,
 		updated_at,
 		html,
+		text_hash
 	} = creativeAd;
 
 	const createdAt = new Date( created_at ? created_at : creation_date );
@@ -51,7 +52,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 						</p>
 					) : null
 			}
-			<Modal
+{/*			<Modal
 				dimmer="inverted"
 				size="fullscreen"
 				trigger={<Button>Ad Details</Button>}
@@ -66,6 +67,8 @@ const AdDetails = ( { ad, creativeAd } ) => {
 					</div>
 				</div>
 			</Modal>
+*/}	
+			<Link to={'/ad/' + text_hash }>Ad Details</Link>
 		</div>
 	);
 };

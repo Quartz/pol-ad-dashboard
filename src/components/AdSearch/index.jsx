@@ -21,9 +21,11 @@ const useQuery = ( pathname ) => {
 			searchParams[key] = toParse.get( key ).split( ',' );
 		}
 	}
-	if ( pathname.includes( '/advertiser' ) ) {
+	else if ( pathname.includes( '/advertiser' ) ) {
 		const { advertiser } = params;
 		searchParams.search = [ advertiser ];
+	} else {
+		// do nothing.
 	}
 	return searchParams;
 };

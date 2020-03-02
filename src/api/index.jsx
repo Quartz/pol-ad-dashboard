@@ -54,6 +54,8 @@ class API extends React.Component {
 
 	getAdvertiserByName = ( name ) => this.get( `${this.baseURL}/pages_by_name/${encodeURIComponent( name )}.json` );
 
+	getAdByTextHash = ( text_hash ) => this.get( `${this.baseURL}/ads_by_text/${encodeURIComponent( text_hash )}.json` );
+
 	getTopics = () => this.get( `${this.baseURL}/topics.json` );
 
 	handleChange = ( key ) => ( _, { value } ) => this.setState( { [key]: value } );
@@ -69,6 +71,7 @@ class API extends React.Component {
 		const baseProps = {
 			getAd: this.getAd,
 			getAdvertiserByName: this.getAdvertiserByName,
+			getAdByTextHash: this.getAdByTextHash,
 			getTopics: this.getTopics,
 			search: this.search,
 		};
