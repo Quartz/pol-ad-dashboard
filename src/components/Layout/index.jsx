@@ -33,6 +33,7 @@ const CommonTargets = () => (
 				} )
 			}
 		</ul>
+		<span><a href="https://dashboard-backend.qz.ai/ads/pivot/segments">see all targets</a></span>
 	</div>
 );
 
@@ -45,6 +46,9 @@ const Layout = ( {
 } ) => (
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
+			<h1>Quartz FB ads dashboard</h1>
+  		<span><a href="https://dashboard-backend.qz.ai/">tools</a></span>
+
 			{
 				pathname === '/search' && (
 					<Fragment>

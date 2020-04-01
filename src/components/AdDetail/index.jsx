@@ -51,7 +51,7 @@ const AdDetail = ( { getAdByTextHash } ) => {
         <div className={cx( 'adv-section', 'spend' )}>
           <div>{min_spend ? `$${min_spend.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} - $${max_spend.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} spent` : 'Unknown spend'}</div>
           <div>{min_impressions ? `${min_impressions.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} - ${max_impressions.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} impressions` : 'unknown impressions'}</div>
-          <div>{api_ads_count || 0} ads</div>
+          <div>{api_ads_count || 0} FB API ads</div>
           <div>{fbpac_ads_count || 0} FBPAC ads</div>
         </div>
 
