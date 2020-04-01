@@ -1,0 +1,50 @@
+.payer-container {
+  background-color: lightgrey;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.comma {
+  margin-right: 4px;
+}
+
+.adv-section {
+  float: left;
+  margin-right: 20px;
+}
+
+.topics {
+  width: 40%;
+}
+
+.topic-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+.spend {
+  float: none;
+  margin-bottom: 12px;
+}
+
+.targeting {
+  width: 50%;
+}
+
+.summary {
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.summary:hover {
+  cursor: pointer;
+}
+
+.summary:focus {
+  outline: none;
+}
