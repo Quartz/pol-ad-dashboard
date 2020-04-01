@@ -56,7 +56,7 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 				<h2>{advertiser}</h2>
 				<div className={cx( 'adv-section', 'spend' )}>
 					<div>{precise_spend ? `$${precise_spend.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} spent` : 'Unknown spend'}</div>
-					<div>{ads || 0} ads</div>
+					<div>{ads || 0} Facebook API ads</div>
 					<div>{fbpac_ads || 0} FBPAC ads</div>
 				</div>
 				<div className={cx( 'adv-section', 'topics' )}>
@@ -77,12 +77,12 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 					}
 				</div>
 				<div className={cx( 'adv-section' )}>
-					<h4>Payers</h4>
+					<h4>Paid for by disclaimers used by this page</h4>
 					<p>
 						{
 							payers &&
 							payers
-								.map( payer => <Link key={payer.name} className={cx( 'link' )} to={`/search?search=${encodeURI( payer.name )}`}>{payer.name}</Link> )
+								.map( payer => <Link key={payer.name} className={cx( 'link' )} to={`/payer/${encodeURI( payer.name )}`}>{payer.name}</Link> )
 								.reduce( ( accum, payer, idx ) => {
 									// add commas
 									const next = [ payer, ( <span className={cx( 'comma' )}>,</span> ) ];
@@ -98,7 +98,7 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 					targetings && targetings.individual_methods && targetings.individual_methods.length > 0 && (
 						<details className={cx( 'adv-section', 'targeting' )}>
 							<summary className={cx( 'summary' )}>
-								Count of Advertiser Targets
+								Targeting methods used
 							</summary>
 							<Targets targets={targetings.individual_methods} />
 						</details>
