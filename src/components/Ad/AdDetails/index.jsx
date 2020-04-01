@@ -7,7 +7,35 @@ import styles from './AdDetails.module.css';
 
 const cx = classnames.bind( styles );
 
-export const CreativeAd = ( { html } ) => <div dangerouslySetInnerHTML={{ __html: html }} />;
+// export const CreativeAd = ( { html } ) => <div dangerouslySetInnerHTML={{ __html: html }} />;
+
+export class CreativeAd extends React.Component {
+  constructor(props) {
+    super(props);
+    this.adRef = React.createRef();
+  }
+  componentDidMount() {
+  	console.log("asdfasdf", this.adRef, this.adRef.current);
+    if (!this.adRef || !this.adRef.current) return;
+  	console.log("asdfasasdfasdfdf 2");
+    const link = this.adRef.current.querySelector(".see_more_link");
+    if (!link) return;
+  	console.log("asdfasasdfasdfdf 3");
+    link.addEventListener("click", (event) => {
+    	event.preventDefault();
+      this.adRef.current.querySelector(".text_exposed_hide").style.display =
+        "none";
+      this.adRef.current.querySelector(".see_more_link").style.display = "none";
+      this.adRef.current
+        .querySelectorAll(".text_exposed_show")
+        .forEach(node => (node.style.display = "inline"));
+    });
+  }
+
+  render(){
+  	return <div ref={this.adRef} dangerouslySetInnerHTML={{ __html: this.props.html }} />;
+  }
+}
 
 const AdDetails = ( { ad, creativeAd } ) => {
 	const { currency } = ad ? ad.ads.find( subAd => !subAd.id ) : { currency: 'USD' }; // find the FBPAC version of the ad which contains more price data
