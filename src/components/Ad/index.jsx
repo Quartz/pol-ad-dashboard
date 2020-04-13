@@ -31,7 +31,7 @@ const Ad = ( { ad, creativeAd, text } ) => {
 			{
 				targetings && targetings[0] && targetings[0][0] === '<' // cleanup since sometimes an ad target isn't html
 					? (
-						<div dangerouslySetInnerHTML={{ __html: targetings[0] }} />
+						<div className="targetingHtml" dangerouslySetInnerHTML={{ __html: targetings[0] }} />
 					) : null
 			}
 			{

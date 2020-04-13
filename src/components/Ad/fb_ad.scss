@@ -97,6 +97,10 @@
 	}
   }
   
+.targetingHtml .img {
+  width: unset;
+}
+
   .targeting_info {
 	max-width: 500px;
 	margin: 0 auto 12px;
@@ -116,6 +120,7 @@
   h5, h6 {
     font-size: 1rem;
     margin-bottom: 0;
+    margin-top: 0;
   }
 
 
