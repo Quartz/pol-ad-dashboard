@@ -39,7 +39,7 @@ const AdDetail = ( { getAdByTextHash } ) => {
     max_spend,
     min_impressions,
     max_impressions,
-    ad,
+    ad
   } = adData;
 
 
@@ -53,6 +53,9 @@ const AdDetail = ( { getAdByTextHash } ) => {
           <div>{min_impressions ? `${min_impressions.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} - ${max_impressions.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} impressions` : 'unknown impressions'}</div>
           <div>{api_ads_count || 0} FB API ads</div>
           <div>{fbpac_ads_count || 0} FBPAC ads</div>
+          <div>First seen: {ad["created_at"] || null}</div>
+          <div>Last seen: {ad["updated_at"] || null}</div>
+
         </div>
 
         <AdWrapper adData={ad["variants"]} />
