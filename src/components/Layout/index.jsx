@@ -5,6 +5,7 @@ import { withURLSearchParams } from 'utils';
 import { COMMON_TARGETS_GROUPED } from '../constants';
 import Targets, { TargetFilters } from 'components/Targets';
 import Topics from 'components/Topics';
+import Tools from 'components/Tools'
 import classnames from 'classnames/bind';
 import Search from 'components/Search';
 import styles from './Layout.module.css';
@@ -33,7 +34,6 @@ const CommonTargets = () => (
 				} )
 			}
 		</ul>
-		<span><a href="https://dashboard-backend.qz.ai/ads/pivot/segments">see all targets</a></span>
 	</div>
 );
 
@@ -47,8 +47,6 @@ const Layout = ( {
 	<div className={cx( 'layout' )}>
 		<div className={cx( 'left-rail' )}>
 			<h1>Quartz FB ads dashboard</h1>
-  		<span><a href="https://dashboard-backend.qz.ai/">tools</a></span>
-
 			{
 				pathname === '/search' && (
 					<Fragment>
@@ -71,6 +69,8 @@ const Layout = ( {
 			<TargetFilters getParam={getParam} />
 			<Divider />
 			<CommonTargets />
+
+			<Tools />
 		</div>
 		<div className={cx( 'content' )}>
 			{
