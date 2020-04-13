@@ -15,12 +15,9 @@ export class CreativeAd extends React.Component {
     this.adRef = React.createRef();
   }
   componentDidMount() {
-  	console.log("asdfasdf", this.adRef, this.adRef.current);
     if (!this.adRef || !this.adRef.current) return;
-  	console.log("asdfasasdfasdfdf 2");
     const link = this.adRef.current.querySelector(".see_more_link");
     if (!link) return;
-  	console.log("asdfasasdfasdfdf 3");
     link.addEventListener("click", (event) => {
     	event.preventDefault();
       this.adRef.current.querySelector(".text_exposed_hide").style.display =
