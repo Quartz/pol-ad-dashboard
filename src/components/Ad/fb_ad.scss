@@ -15,9 +15,19 @@
 	list-style: none;
 	padding: 0;
 }
+.uiList li:nth-of-type(1n+3) {
+  display: none;
+}
 
 .pagination .item:focus {
 	outline: none;
+}
+
+
+h5, h6 {
+  font-size: 1rem;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 // FB SCSS:
@@ -38,7 +48,7 @@
 	._4hcd {
 	  margin-top: 6px;
 	}
-  }
+}
   
   ._2lgs {
 	/* intrusive S in Sponsored (i.e. SpSonSsOSredS or whatever) */
@@ -101,7 +111,7 @@
   width: unset;
 }
 
-  .targeting_info {
+.targeting_info {
 	max-width: 500px;
 	margin: 0 auto 12px;
 	h3 {
@@ -115,16 +125,10 @@
 		font-weight: bold;
 	  }
 	}
-  }
-
-  h5, h6 {
-    font-size: 1rem;
-    margin-bottom: 0;
-    margin-top: 0;
-  }
+}
 
 
-  .ad-metadata {
+.ad-metadata {
 	max-width: 500px;
 	margin: 0 auto 1em;
 	padding: 0 12px;
@@ -133,9 +137,9 @@
 	.permalink {
 	  float: right;
 	}
-  }
+}
   
-  ._1dwg._1w_m {
+._1dwg._1w_m {
 	// Timeline ad wrapper div
 	max-width: 500px;
 	border: 1px solid #dddfe2;
