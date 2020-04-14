@@ -5,3 +5,10 @@
 .search-targets > .container {
 	margin: 0px -12px;
 }
+
+.inad .redx {
+  display: none;
+}
+.inad:hover .redx {
+  display: block;
+}

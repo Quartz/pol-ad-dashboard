@@ -37,7 +37,7 @@ const Ad = ( { ad, creativeAd, text } ) => {
 			{
 				targets && targets[0]
 					? (
-						<Targets targets={targets} />
+						<Targets targets={targets} inAd={true}/>
 					) : null
 			}
 			<AdDetails ad={ad} creativeAd={creativeAd} text={text} />

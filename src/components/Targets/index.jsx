@@ -35,15 +35,16 @@ TargetFilters.propTypes = {
 	getParam: PropTypes.func.isRequired,
 };
 
-const TargetButton = ( { isPresent, target, targetSearch } ) => {
+const TargetButton = ( { isPresent, target, targetSearch, inAd } ) => {
 	const { target: type, segment, count } = target;
 	return (
 		<div className={cx( 'button-group' )}>
+			<div className={inAd ? cx('inad') : ''}>
 			<Button.Group>
 				{
 					isPresent
 						? (
-							<Button icon color="red" onClick={targetSearch( isPresent, type, segment )}>
+							<Button className={cx('redx')} icon color="red" onClick={targetSearch( isPresent, type, segment )}>
 								<Icon name="close" />
 							</Button>
 						) : null
@@ -65,6 +66,7 @@ const TargetButton = ( { isPresent, target, targetSearch } ) => {
 						) : null
 				}
 			</Button.Group>
+			</div>
 		</div>
 	);
 };
@@ -73,6 +75,7 @@ const Targets = ( {
 	getParam,
 	setParam,
 	targets,
+	inAd
 } ) => {
 	const parsedTargets = JSON.parse( getParam( 'targeting' ) ) || [];
 	const formattedParsedTargets = parsedTargets.map( toFormat => ( { target: toFormat[0], segment: toFormat[1] } ) );
@@ -95,7 +98,7 @@ const Targets = ( {
 				targets.map( ( target, idx ) => {
 					const isPresent = formattedParsedTargets.some( item => target.target === item.target && target.segment === item.segment );
 					return (
-						<TargetButton key={`${target.segment}-${idx}`} target={target} targetSearch={targetSearch} isPresent={isPresent} />
+						<TargetButton key={`${target.segment}-${idx}`} target={target} targetSearch={targetSearch} isPresent={isPresent} inAd={inAd} />
 					);
 				} )
 			}
