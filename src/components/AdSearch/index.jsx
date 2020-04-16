@@ -34,9 +34,8 @@ const useQuery = ( pathname ) => {
 	return searchParams;
 };
 
-const AdMeta = ( { totalCount, pages, page, setPage } ) => (
+const AdMeta = ( { pages, page, setPage } ) => (
 	<div className={cx( 'meta-container' )}>
-		<h4 className={cx( 'meta-title' )}>Total Ads: {totalCount.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )}</h4>
 		<Pagination totalPages={pages} activePage={page} onPageChange={setPage} />
 	</div>
 );
@@ -45,7 +44,6 @@ AdMeta.propTypes = {
 	page: PropTypes.oneOfType( [ PropTypes.string, PropTypes.number ] ),
 	pages: PropTypes.number.isRequired,
 	setPage: PropTypes.func.isRequired,
-	totalCount: PropTypes.number.isRequired,
 };
 
 const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam } ) => {
