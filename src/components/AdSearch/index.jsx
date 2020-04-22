@@ -85,7 +85,6 @@ const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam
 				pages={adData.n_pages}
 				page={adData.page}
 				setPage={setPage}
-				totalCount={adData.total_ads}
 			/>
 			<div className={cx( 'container' )}>
 				{
@@ -106,7 +105,6 @@ const AdSearch = ( { search: apiSearch, location: { pathname, search }, setParam
 							pages={adData.n_pages}
 							page={adData.page}
 							setPage={setPage}
-							totalCount={adData.total_ads}
 						/>
 					) : null
 			}
