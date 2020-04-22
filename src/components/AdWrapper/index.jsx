@@ -9,7 +9,7 @@ const AdWrapper = ( { adData } ) => adData.map( ( ad, idx ) => {
 
 	if ( !ads ) {
 		return (
-			<Ad key={`${ad.id}-${idx}`} creativeAd={ad} text={text} />
+			<Ad key={`${ad.id || ad.archive_id}-${idx}`} creativeAd={ad} text={text} />
 		);
 	}
 
