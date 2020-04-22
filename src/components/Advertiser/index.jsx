@@ -48,6 +48,7 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 		precise_spend,
 		topics,
 		targetings,
+		page_id
 	} = advertiserData;
 
 	return (
@@ -85,7 +86,7 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 								.map( payer => <Link key={payer.name} className={cx( 'link' )} to={`/payer/${encodeURI( payer.name )}`}>{payer.name}</Link> )
 								.reduce( ( accum, payer, idx ) => {
 									// add commas
-									const next = [ payer, ( <span className={cx( 'comma' )}>,</span> ) ];
+									const next = [ payer, ( <span key={"comma-" + idx} className={cx( 'comma' )}>,</span> ) ];
 									if ( idx === payers.length - 1 ) {
 										next.pop();
 									}
