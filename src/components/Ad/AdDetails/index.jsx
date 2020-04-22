@@ -34,30 +34,36 @@ export class CreativeAd extends React.Component {
   }
 }
 
-const AdDetails = ( { ad, creativeAd } ) => {
+const AdDetails = ( { ad, creativeAd, text } ) => {
 	const { currency } = ad ? ad.ads.find( subAd => !subAd.id ) : { currency: 'USD' }; // find the FBPAC version of the ad which contains more price data
 	const {
 		advertiser,
 		created_at,
-		creation_date,
 		impressions,
 		paid_for_by,
-		title,
 		updated_at,
 		html,
-		text_hash
+		text_hash,
+		ad_creative_link_caption,
+		ad_creative_link_title,
+		ad_creative_link_description
 	} = creativeAd;
 
-	const createdAt = new Date( created_at ? created_at : creation_date );
+	const createdAt = new Date( created_at );
 	const updatedAt = new Date( updated_at );
 
 	return (
 		<div
 			className={cx( 'details-container' )}
 		>
-			<h4 className={cx( 'title' )}>{title}</h4>
-			<h4 className={cx( 'title' )}>Advertiser: <Link to={`/advertiser/${encodeURI( advertiser )}`}>{advertiser}</Link></h4>
-			<h4 className={cx( 'paid-for' )}>Paid for by {paid_for_by || 'Unknown'}</h4>
+			<div>
+			<h4 className={cx( 'title' )}><Link to={`/advertiser/${encodeURI( advertiser )}`}>{advertiser}</Link></h4>
+			<h4 className={cx( 'paid-for' )}>Paid for by: {paid_for_by || 'Unknown'}</h4>
+			<p className={cx( 'text' )}>{text}</p>
+			<p className={cx( 'text' )}>{ad_creative_link_caption}</p>
+			<p className={cx( 'text' )}>{ad_creative_link_title}</p>
+			<p className={cx( 'text' )}>{ad_creative_link_description}</p>
+
 			{
 				impressions
 					? (
@@ -94,6 +100,7 @@ const AdDetails = ( { ad, creativeAd } ) => {
 			</Modal>
 */}	
 			<Link to={'/ad/' + text_hash }>Ad Details</Link>
+			</div>
 		</div>
 	);
 };

@@ -18,11 +18,7 @@ const Ad = ( { ad, creativeAd, text } ) => {
 	} = creativeAd;
 
 	if ( !html ) {
-		const adDetails = {
-			created_at: creativeAd.creation_date,
-			title: creativeAd.text,
-		};
-		return <AdDetails creativeAd={adDetails} text={text}/>;
+		return <AdDetails creativeAd={creativeAd} text={text}/>;
 	}
 
 	return (

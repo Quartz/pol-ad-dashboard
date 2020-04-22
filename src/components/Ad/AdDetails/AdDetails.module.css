@@ -1,16 +1,20 @@
-.title {
-	width: 500px;
-}
-
 .details-container {
 	background-color: #F1F4F8;
 	padding: 12px;
-	margin: 5px 0;
+	margin: 10px;
 	border-radius: 0 0 4px 4px;
+	display: inline-block;
+	vertical-align: top;
+	box-shadow: -3px 6px 14px 0px rgba(0,0,0,0.1)
 }
 
-.title, .paid-for {
+.title, .paid-for, .text, .sub {
 	margin: 10px 0;
+	width: 500px;
+}
+
+.text {
+	font-weight: normal;
 }
 
 .sub {
