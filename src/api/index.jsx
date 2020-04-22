@@ -1,7 +1,7 @@
 import React from 'react';
 import Login from 'components/Login';
 
-const DASHBOARD_URL = 'https://dashboard-backend.qz.ai';
+const DASHBOARD_URL = process.env.NODE_ENV == 'development' ? 'http://localhost:3001' : 'https://dashboard-backend.qz.ai';
 
 const AuthContext = React.createContext();
 
