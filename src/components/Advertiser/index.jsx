@@ -63,7 +63,7 @@ const Advertiser = ( { getAdvertiserByName } ) => {
 				<div className={cx( 'adv-section', 'topics' )}>
 					<h4>Topic Coverage</h4>
 					{
-						topics && Object.keys( topics ).map( ( topicKey, idx ) => {
+						topics && Object.keys( topics ).sort((a, b) => topics[b] - topics[a]).map( ( topicKey, idx ) => {
 							const targetPercent = topics[topicKey];
 							const color = findColor( idx );
 							return (
