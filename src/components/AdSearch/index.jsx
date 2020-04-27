@@ -14,12 +14,15 @@ const useQuery = ( pathname ) => {
 	const params = useParams();
 	const { search } = useLocation();
 	const searchParams = {};
+
+	const toParse = new URLSearchParams( search );
+	const keys = toParse.keys();
+	for ( const key of keys ) {
+		searchParams[key] = toParse.get( key ).split( ',' );
+	}
+
 	if ( pathname === '/search' ) {
-		const toParse = new URLSearchParams( search );
-		const keys = toParse.keys();
-		for ( const key of keys ) {
-			searchParams[key] = toParse.get( key ).split( ',' );
-		}
+		// don't do anything special for searches.
 	}
 	else if ( pathname.includes( '/advertiser' ) ) {
 		const { advertiser } = params;
