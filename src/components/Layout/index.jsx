@@ -60,9 +60,16 @@ const Layout = ( {
 			<Search />
 			<Divider />
 			<Checkbox
+				label="Only crowdsourced collector ads"
+				checked={search.includes( 'only_fbpac=true' )}
+				onClick={() => toggleParam( 'only_fbpac' )}
+				className={cx('checkbox')}
+			/>
+			<Checkbox
 				label="Only ads without 'Paid For By' disclaimer"
 				checked={search.includes( 'no_payer=true' )}
 				onClick={() => toggleParam( 'no_payer' )}
+				className={cx('checkbox')}
 			/>
 			<Divider />
 			<Topics />

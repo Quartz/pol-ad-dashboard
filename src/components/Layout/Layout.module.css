@@ -41,3 +41,7 @@
 .target-details > summary:focus {
 	outline: none;
 }
+
+.checkbox {
+	margin-bottom: 5px;
+}
