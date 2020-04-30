@@ -6,7 +6,7 @@ const cx = classnames.bind( styles );
 
 const Tools = () => (
 <div className={cx( 'tools' )}>
-  <li href="https://dashboard-backend.qz.ai/bigspenders">Big spenders this week</li>
+  <li><a href="https://dashboard-backend.qz.ai/bigspenders">Big spenders this week</a></li>
   <h4>Advertisers</h4>
   <ul>
     <li><a href="https://dashboard-backend.qz.ai/ads/pivot/advertiser?time_unit=week&time_count=1&first_seen=1">New this week</a></li>
