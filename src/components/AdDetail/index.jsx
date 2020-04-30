@@ -53,8 +53,9 @@ const AdDetail = ( { getAdByTextHash } ) => {
           <div>{min_impressions ? `${min_impressions.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} - ${max_impressions.toString().replace( /(\d)(?=(\d{3})+(?!\d))/g, '$1,' )} impressions` : 'unknown impressions'}</div>
           <div>{api_ads_count || 0} FB API ads</div>
           <div>{fbpac_ads_count || 0} FBPAC ads</div>
-          <div>First seen: {ad["created_at"] || null}</div>
+          <div>First seen: {ad["xed_at"] || null}</div>
           <div>Last seen: {ad["updated_at"] || null}</div>
+          <div><a href={ "https://www.facebook.com/ads/library/?id=" + ad.archive_id }>FB ad library link </a></div>
 
         </div>
 
