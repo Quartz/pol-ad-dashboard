@@ -6,6 +6,7 @@ import { COMMON_TARGETS_GROUPED } from '../constants';
 import Targets, { TargetFilters } from 'components/Targets';
 import Topics from 'components/Topics';
 import Tools from 'components/Tools'
+import Credits from 'components/Credits'
 import classnames from 'classnames/bind';
 import Search from 'components/Search';
 import styles from './Layout.module.css';
@@ -77,6 +78,7 @@ const Layout = ( {
 			<Divider />
 			<CommonTargets />
 
+			<Credits />
 			<Tools />
 		</div>
 		<div className={cx( 'content' )}>
